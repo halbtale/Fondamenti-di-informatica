@@ -1,6 +1,6 @@
-# fondamenti di informatica
+# Fondamenti di informatica
 ## Indice
-### appunti
+
 1. [[Introduzione]]
 2. [[La nascita delll'informatica]]
 3. [[Il concetto di algoritmo]]
