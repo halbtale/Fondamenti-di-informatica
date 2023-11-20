@@ -101,3 +101,13 @@ public static void remove(int[] v, int vSize, int index) {
 	v[index] = v[vSize - 1];
 }
 ```
+
+#### array ordinato
+- Spostare tutti gli elementi dell'array successivi all'elemento da rimuovere alla posizione inferiore
+- Ridimensionare l'array (o ridurre indice con array riempiti solo in parte)
+```java
+public static void removeSorted(int[] v, int vSize, int index) {
+	for (int i = index; i < vSize - 1; i++)
+		v[i] = v[i + 1];
+}
+```
