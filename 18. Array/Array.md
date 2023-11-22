@@ -104,6 +104,7 @@ public static void remove(int[] v, int vSize, int index) {
 
 #### array ordinato
 - Spostare tutti gli elementi dell'array successivi all'elemento da rimuovere alla posizione inferiore
+	- dall'indice basso all'alto
 - Ridimensionare l'array (o ridurre indice con array riempiti solo in parte)
 ```java
 public static void removeSorted(int[] v, int vSize, int index) {
@@ -111,3 +112,87 @@ public static void removeSorted(int[] v, int vSize, int index) {
 		v[i] = v[i + 1];
 }
 ```
+
+### inserire elemento in array
+#### array ordinato
+- Ridimensionare array (se è pieno)
+	- dall'indice alto al basso
+- Spostare tutti gli elementi successivi alla posizione di inserimento
+```java
+public static int[] insert(int[] v, int vSize, int index, int val) {
+	if (vSize == v.length)
+		v = resize(v, 2 * v.length);
+	
+	for (int i = vSize; i > index; i--)
+		v[i] = v[i - 1];
+		
+	v[index] = val;
+	
+	return v;
+}
+```
+
+### trovare valore in array
+#### ricerca lineare
+- Array NON ordinato
+- Scorrere gli elementi dell'array finché non si trova l'elemento o si finisce l'array
+```java
+public static int linearSearch(int[] v, int vSize, int value) {
+	for (int i = 0; i < vSize; i++)
+		if (v[i] == value) return i; // trovato valore
+	
+	return -1; // valore non trovato
+}
+```
+#### valore minimo
+- Inizializzare valore candidato con il primo elemento
+- Confrontare il candidato con gli elementi rimanenti
+- Aggiornare valore candidato se viene trovato valore minore
+```java
+public static int findMin(int[] v, int vSize) { 
+	int min = v[0]; 
+	
+	for (int i = 1; i < vSize; i++) 
+		if (v[i] < min) min = v[i]; 
+		
+	return min; 
+}
+```
+
+#### valore massimo
+- Inizializzare valore candidato con il primo elemento
+- Confrontare il candidato con gli elementi rimanenti
+- Aggiornare valore candidato se viene trovato valore maggiore
+```java
+public static int findMax(int[] v, int vSize) { 
+	int max = v[0]; 
+	
+	for (int i = 1; i < vSize; i++) 
+		if (v[i] > max) max = v[i]; 
+		
+	return max; 
+}
+```
+
+### array bidimensionali
+- Chiamati anche **matrici**
+- Ogni elemento è identificato da una coppia di indici
+```java
+int[][] matrix = new int[][];
+```
+
+### argomenti sulla riga comandi
+- Si possono passare dei parametri quando si esegue il programma
+- Verranno contenuti in ```String[] args```
+```sh
+java MyApp arg1 arg2 arg3
+```
+
+### array paralleli
+- Creare diversi array per contenere dati **fortemente correlati**
+	- indici sono tra loro correlati
+	- rappresentano proprietà diverse di uno stesso concetto
+
+>[!error] Attenzione
+>Non conviene fare array paralleli ma piuttosto meglio array di oggetti!
+
