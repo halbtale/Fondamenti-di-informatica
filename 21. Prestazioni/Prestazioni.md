@@ -1,0 +1,146 @@
+## prestazioni
+### come misurare prestazioni?
+- Usare cronometro non è la soluzione migliori
+	- parte del tempo reale non dipende dall'algoritmo
+- Utilizzo metodo ```System.currentTimeMillis()```
+	- numero di millisecondi da evento riferimento (01/01/1970)
+	- facendo la differenza tra le due chiamate del metodo, si trova tempo di esecuzione reale
+- Eseguire algoritmo con array di dimensioni (n) diverse
+	- ripetere misura + volte per trovare valore medio $T(n)$
+- Plottare risultato su piano cartesiano
+	- individuare curva che approssima i dati
+### analisi teorica delle prestazioni
+- Modello di costo di un algoritmo che dipende:
+	- numero di **operazioni primitive** (passi base)
+	- **dimensione dei dati** da elaborare
+	- **valore dei dati**
+- Analisi senza **realizzare** e **compilare** un algoritmo
+	- senza programmarlo
+- Non deve dipendere dalla potenza del computer
+#### operazioni primitive
+- Operazione che ha **tempo di esecuzione costante**
+- Esempi
+	- assegnazione valore a una variabile
+	- operazione aritmetica/logica tra variabili primitive
+	- accesso in lettura/scrittura a un elemento di un array
+	- NO: invocazione di un metodo
+#### dimensione dei dati
+- A seconda dell'input, assume significati diversi:
+	- **grandezza di un numero**
+		- in calcolo numerico
+	- **numero di elementi**
+		- problemi di ordinamento con array
+	- **numero di bit** di un numero
+- $n$ = dimensione input
+
+#### valore dei dati
+- Durata esecuzione dipende da valore dei dati
+	- se contiene cicli e decisioni
+- Metodi di stima:
+	- stima di **caso peggiore**
+	- stima di **caso migliore**
+	- stima di **caso medio**
+		- es. numeri casuali
+
+### big-o notation 
+- Si ottiene considerando soltanto il termine che si incrementa più rapidamente al variare di n, ignorando coefficienti costanti
+- $f(n)=O(g(n))$
+	- $\exists C>0\ : f(n)/g(n) < C \, \, def$
+	- $f(n)$ ==cresce non più velocemente== di $g(n)$
+	- es: $f(n)=\frac{1}{2}n^2=O(n^2)=O(n^3)$
+- $f(n)=\Omega(g(n))$
+	- $\exists C>0\ : f(n)/g(n) > C \, \, def$
+	- $f(n)$ ==cresce non più lentamente di $g(n)$
+- $f(n)=\Theta(g(n))$
+	-  $\exists C1,C2>0\ : C1 < f(n)/g(n) < C2 \, \, def$
+	- $f(n)$ ==cresce con la stessa velocità di $g(n)$
+
+### ordini di complessità
+#### classificazione algoritmo
+- In funzione delle prestazioni
+	- ==Efficiente==: al massimo **polinomiale**
+	- ==Inefficiente==: almeno **esponenziale**
+
+#### classificazione problema algoritmico
+- In funzione del **più veloce** algoritmo che lo risolve
+	- ==Trattabile==: complessità al massimo **polinomiale**
+	- ==Non trattabile==: complessità almeno **esponenziale**
+
+![[Tabella prestazioni.png]]
+
+### analisi prestazioni - selection sort
+#### analisi numero accessi lettura/scrittura al variare di n
+- **Conteggio acc**essi all'array nella prima iterazione del ciclo esterno (i=0)
+	- per trovare elemento minore: $n$ accessi
+	- 4 accessi per swap
+		- caso peggiore: serve sempre effettuare lo swap
+	- $(n+4)$ accessi in totale
+- Ora deve ordinare parte rimanente di $(n-1)$ elementi
+	- $[(n-1) + 4]$ accessi
+- Si arriva fino al passo con $2$ elementi
+- Totale:
+	- $T(n) = (n+4) + ((n-1)+4) + ((n-2)+4)+ ...+(2+4)$
+	            $=[n+(n-1)+(n-2)+...+3+2] + (n-1)*4$
+	            $=\frac{n(n+1)}{2}-1 + (n-1)*4$
+	            $=\frac{1}{2}n^2+\frac{9}{2}n-5$
+	- si ottiene andamento parabolico (come trovato sperimentalmente)
+#### andamento asintotico per valori elevati di n
+- È utile individuare le prestazioni per **valori elevati di n**
+	- si studia ==andamento asintotico==
+	- $T(n) \sim \frac{1}{2}\,n^2$
+- Applicando un'ulteriore semplificazione e ingnorando i fattori costanti:
+	- $T(n)=c\,n^2$
+	- da questa relazione si capisce che se $n$ raddoppia, il tempo di esecuzione quadruplica
+- $O(n^2)$ = numero di accessi è dell'==ordine== di $n^2$
+
+#### stima complessità algoritmo con due cicli annidati
+```java
+for (int i = 0; i < n; i++) {
+	//... operazioni primitive
+	for (int j = i; j < n; j++) {
+		//... operazioni primitive
+	}
+}
+```
+- Numero totale: $\sum^{n}_{i} i = \frac{n(n+1)}{2} = O(n^2)$
+	- cicli annidati di questo tipo hanno sempre prestazioni *O(n^2)*
+
+### analisi prestazioni - merge sort
+#### analisi delle singole fasi
+- ==Creazione== dei due sottoarray
+	- $2n$ accessi 
+		- tutti gli elementi devono essere letti e scritti
+- ==Invocazioni ricorsive==
+	- $T(n/2)$
+		- contengono metà elementi
+- ==Fusione==
+	- $2n$
+		- per ogni elemento che si andrà a scrivere nell'array finale, bisogna leggere due elementi (per confrontarli), uno da ciascun array da fondere
+	- $n$
+		- accessi nella scrittura dell'array finale
+#### totale
+- $T(n) = 2T(\frac{n}{2})+5\,n$
+	- equazione per **ricorrenza**
+- Si procede per sostituzioni successive
+	- $T(\frac{n}{2})=2T(\frac{n}{4})+5\,\frac{n}{2}$
+	- $T(\frac{n}{4})=2T(\frac{n}{8})+5\,\frac{n}{4}$
+	- ...
+	- $T(1)=1$
+- Facendo la somma totale
+	- $T(n)=2T(\frac{n}{2})+5n$
+	            $=2(2T(\frac{n}{4})+\frac{5}{2}n)+5n$
+		    $=2^2\,T(\frac{n}{2^2})+2\cdot5\,n$
+		    $=...$
+		    $=2^k\,T(\frac{n}{2^k})+k*5\,n$
+- Si raggiunge caso base quando:
+	- $\frac{n}{2^{k}}=1\Leftrightarrow k=\log_{2}n$
+- Sostituendo il k trovato:
+	- $2^k\,T(\frac{n}{2^k})+k\cdot5\,n=n*1+5n*\log_{2}n$ $=O(n \log n)$
+- In conclusione: $T(n)=O(n \log n)$
+	- più veloce di selection sort
+
+#### stima complessità algoritmo definito per ricorrenza
+- $T(n)=aT(n/b)+f(n)$
+- Si può calcolare
+	- per sostituzione
+	- utilizzando ==Master Theorem==

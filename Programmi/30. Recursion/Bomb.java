@@ -1,8 +1,11 @@
 public class Bomb {
     public static void main(String[] args) {
         System.out.println("CALCOLO.. intanto studia Analisi");
-        long result = recursiveFib(31);
+        long initialTime = System.currentTimeMillis();
+        long result = recursiveFib(41);
+        long duration = System.currentTimeMillis() - initialTime;
         System.out.println(result);
+        System.out.println("TIME in ms: " + duration);
     }
 
     public static long recursiveFib(int n) {
