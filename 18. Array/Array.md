@@ -133,17 +133,6 @@ public static int[] insert(int[] v, int vSize, int index, int val) {
 ```
 
 ### trovare valore in array
-#### ricerca lineare
-- Array NON ordinato
-- Scorrere gli elementi dell'array finché non si trova l'elemento o si finisce l'array
-```java
-public static int linearSearch(int[] v, int vSize, int value) {
-	for (int i = 0; i < vSize; i++)
-		if (v[i] == value) return i; // trovato valore
-	
-	return -1; // valore non trovato
-}
-```
 #### valore minimo
 - Inizializzare valore candidato con il primo elemento
 - Confrontare il candidato con gli elementi rimanenti

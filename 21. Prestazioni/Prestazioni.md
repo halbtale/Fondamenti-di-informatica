@@ -144,3 +144,46 @@ for (int i = 0; i < n; i++) {
 - Si può calcolare
 	- per sostituzione
 	- utilizzando ==Master Theorem==
+
+### analisi prestazioni - insertion sort
+- Array $n$ elementi
+- Ciclo esterno: $n-1$ iterazioni
+- A ogni iterazione
+	- 2 accessi (1 in lettura prima del ciclo e 1 prima in scrittura)
+	- ciclo interno
+		- 3 accessi per ogni elemento a sinistra
+- Caso peggiore: (dati ordinati al rovescio)
+	- $T(n)=[2+(3*1)+(3*2)+(3*3)+(3*4)] = ... = O(n^2)$
+- Caso migliore: (dati già ordinati)
+	- il ciclo interno non esegue mai iterazioni
+	- $3*(n-1)=O(n)$
+- Caso medio: richiede in media lo spostamento di metà degli elementi alla sua sinistra
+	- $O(n^2)$
+>[!todo] Completo
+
+### confronto tra ordinamenti
+![[Confronto tra ordinamenti.png]]
+
+### analisi prestazioni - linear search
+- Devo sempre fare $n$ accessi
+- $T(n)=O(n)$
+
+### analisi prestazioni - binary search
+- Algoritmo è ricorsivo
+- $T(n) = T\left(\frac{n}{2}\right)+ 1$
+- Risolvo per **sostituzioni successive**
+- $T(n) =  T(\frac{n}{2})+ 1 =  T(\frac{n}{4})+ 1 + 1 = T\left(\frac{n}{2^k}\right)+ k$
+- Arrivo al caso base $T(1)$ quando $\frac{n}{2^{k}}= 1$ ovvero $k=\log_{2}n$
+- $T(n) = \log2 n + 1 = O(\log n)$
+- Ricontrollo
+
+### analisi prestazioni - algoritmo di fibonacci ricorsivo
+- Ricorsione multipla
+- $F_n = F_{n-1} + F_{n-2}$
+- $T(n) = T(n-1)+ T(n-2) > T(n-2) + T(n-2) = 2T(n-2) > 2^2(n-2*2)>2^{k}*T(n-2k)$
+- $T(1)$ si ha quando $n-2k=1$ ovvero $k=\frac{n-1}{2}$
+- $T(n) = T(n-1)+ T(n-2) < T(n-1) + T(n-1) < 2T(n-1) < 2^2(n-1*2)<2^{k}*T(n-k)$
+- $T(1)$ si ha quando $n-k=1$ ovvero $k=n-1$
+- Altri calcoli
+- $O(2^n)$
+

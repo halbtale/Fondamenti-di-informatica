@@ -4,7 +4,7 @@
 - ==Cerco valore minimo==
 	- ==lo scambio== al posto del ==primo== valore (così non serve creare nuovo array)
 - Proseguo con lo stesso procedimento nella parte non ordinata dell'array
-![[Ordinamento per selezione.png|]]
+![[Ordinamento per selezione.png|600]]
 
 #### implementazione in java
 ```java
@@ -36,3 +36,9 @@ public static void selectionSort(int[] v, int vSize) {
 ![[Merge sort code.png]]
 #### prestazioni
 - Ordine $T(n)=O(n \, \log n)$
+
+### ordinamento per inserimento
+- Si inizia osservando **sottoarray** di lunghezza unitaria -> già **ordinato**
+- Prendo primo elemento dell'array non ordinato
+	- inserisco elemento nel **sottoarray ordinato** nella posizione corretta
+![[Ordinamento per inserimento.png|600]]

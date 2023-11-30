@@ -51,14 +51,6 @@ public class ArrayAlgs {
         return v;
     }
 
-    public static int linearSearch(int[] v, int vSize, int value) {
-        for (int i = 0; i < vSize; i++)
-            if (v[i] == value)
-                return i; // trovato valore
-
-        return -1; // valore non trovato
-    }
-
     public static int findMin(int[] v, int vSize) {
         int min = v[0];
 
@@ -148,5 +140,34 @@ public class ArrayAlgs {
             arrayFullIndex++;
             arrayRightPartIndex++;
         }
+    }
+
+    public static void insertionSort(int[] arrayFull, int arraySize) {
+        // il ciclo inizia da 1 perché il primo elemento non richiede attenzione
+
+        for (int i = 1; i < arraySize; i++) {
+            int newElementToAdd = arrayFull[i];
+
+            int j; // definisco fuori perché dopo devo utilizzarlo
+
+            for (j = i; j > 0 && newElementToAdd < arrayFull[j - 1]; j--) {
+                arrayFull[j] = arrayFull[j - 1];
+            }
+
+            arrayFull[j] = newElementToAdd;
+        }
+    }
+
+    public static int linearSearch(int[] v, int vSize, int value) {
+        for (int i = 0; i < vSize; i++)
+            if (v[i] == value)
+                return i; // trovato valore
+
+        return -1; // valore non trovato
+    }
+
+    public static int binarySearch(int[] v, int vSize, int value) {
+        // implemento
+        return 0;
     }
 }
