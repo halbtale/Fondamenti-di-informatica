@@ -33,7 +33,7 @@ public class MyWordProcessor {
             lineArray[lineArraySize] = line;
             lineArraySize++;
         } else {
-            lineArray = ArrayAlgs.resize(lineArray, lineArray.length * 2);
+            lineArray = MyWordProcessor.resize(lineArray, lineArray.length * 2);
             lineArray[lineArraySize] = line;
             lineArraySize++;
         }
@@ -61,7 +61,7 @@ public class MyWordProcessor {
                     words[wordsSize] = word;
                     wordsSize++;
                 } else {
-                    words = ArrayAlgs.resize(words, words.length * 2);
+                    words = MyWordProcessor.resize(words, words.length * 2);
                     words[wordsSize] = word;
                     wordsSize++;
                 }
@@ -70,7 +70,7 @@ public class MyWordProcessor {
             scan.close();
         }
 
-        return ArrayAlgs.resize(words, wordsSize);
+        return MyWordProcessor.resize(words, wordsSize);
     }
 
     /**
@@ -165,6 +165,19 @@ public class MyWordProcessor {
      */
     public int size() {
         return lineArraySize;
+    }
+
+    public static String[] resize(String[] oldArray, int newLength) {
+        if (newLength < 0 || oldArray == null)
+            throw new IllegalArgumentException();
+
+        String[] newArray = new String[newLength];
+        int n = Math.min(oldArray.length, newLength);
+
+        for (int i = 0; i < n; i++)
+            newArray[i] = oldArray[i];
+
+        return newArray;
     }
 
 }

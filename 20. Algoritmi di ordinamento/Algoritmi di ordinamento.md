@@ -42,3 +42,11 @@ public static void selectionSort(int[] v, int vSize) {
 - Prendo primo elemento dell'array non ordinato
 	- inserisco elemento nel **sottoarray ordinato** nella posizione corretta
 ![[Ordinamento per inserimento.png|600]]
+#### implementazione in java
+![[Insertion Sort Code.png]]
+
+
+
+### ordinamento di oggetti
+- Si possono applicare algoritmi di ordinamento a oggetti, non solo a numeri interi
+- Gli algoritmi rimangono quasi invariati: l'unica differenza è l'utilizzo di ```compareTo()```

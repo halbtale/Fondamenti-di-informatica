@@ -1,0 +1,43 @@
+## ereditarietà
+### introduzione
+- Uno dei principi basilari della programmazione orientata agli oggetti
+- Obiettivo **riusabilità del codice**
+- Creare una classe che rappresenta un concetto **generale**
+	- creare classi **specializzate** che ereditano la classe + generale
+- Terminologia
+	- ==superclasse==: la classe da cui si ereditata
+	- ==sottoclasse==: la classe derivata
+
+>[!warning] Attenzione
+>Non vengono **mai** ereditati variabili/metodi privati
+
+### sintassi
+- Si utilizza ```extends```
+	- si può fare extends solo di **una** classe
+```java
+class Sottoclasse extends Superclasse {...}
+```
+
+### superclasse universale object
+- Tutte le classi ereditano dalla superclasse universale ```Object```
+- se ```extends```non viene indicato esplicitamente usa ```java.lang.Object```
+
+### terminologia e notazione
+- Termini **superclasse** e **sottoclasse** derivano dalla **teoria degli insiemi**
+- Nel diagramma ereditarietà viene indicato con la freccia a punta triangolo vuoto
+![[Diagramma ereditarietà.png|100]]
+### metodi della sottoclasse
+- Nella sottoclasse posso **sovrascrivere** dei metodi della superclasse
+	- deve avere la **stessa firma**
+- Invocare un metodo della superclasse
+	- ```super.nomeMetodo(parametri)```
+### variabili di instanza nella sottoclasse
+- **Non** può essere sovrascritta una variabile di istanza nella sottoclasse
+	- se ne creo due uguali, è come se creassi due variabili diverse
+### costruttori nella sottoclasse
+- Posso chiamare il costruttore della superclasse attraverso ```super()```
+- Viene invocato automaticamente se non scritto esplicitamente
+
+### conversione fra riferimenti
+- Posso usare come tipo di un oggetto anche una sua **superclasse**
+	- posso però solo usare i metodi del tipo che ho definito

@@ -1,5 +1,3 @@
-import java.util.Arrays;
-
 public class ArrayAlgs {
     public static int[] resize(int[] oldArray, int newLength) {
         if (newLength < 0 || oldArray == null)
@@ -150,24 +148,42 @@ public class ArrayAlgs {
 
             int j; // definisco fuori perché dopo devo utilizzarlo
 
-            for (j = i; j > 0 && newElementToAdd < arrayFull[j - 1]; j--) {
+            for (j = i; j > 0 && arrayFull[j - 1] > newElementToAdd; j--) {
+                // sposto a destra ogni elemento maggiore di newElementToAdd
                 arrayFull[j] = arrayFull[j - 1];
             }
 
+            // inserisco nella posizione lasciata libera newElementToAdd
             arrayFull[j] = newElementToAdd;
         }
     }
 
-    public static int linearSearch(int[] v, int vSize, int value) {
-        for (int i = 0; i < vSize; i++)
-            if (v[i] == value)
+    public static int linearSearch(int[] array, int arraySize, int searchValue) {
+        for (int i = 0; i < arraySize; i++)
+            if (array[i] == searchValue)
                 return i; // trovato valore
 
         return -1; // valore non trovato
     }
 
-    public static int binarySearch(int[] v, int vSize, int value) {
-        // implemento
-        return 0;
+    public static int binarySearch(int[] array, int arraySize, int searchValue) {
+        return recursiveBinarySearch(array, 0, arraySize - 1, searchValue);
+    }
+
+    private static int recursiveBinarySearch(int[] array, int startIndex, int endIndex, int searchValue) {
+        if (startIndex > endIndex)
+            return -1; // elemento non trovato
+        int midIndex = (startIndex + endIndex) / 2;
+        int midElement = array[midIndex];
+
+        if (midElement == searchValue) {
+            return midIndex;
+        } else if (midElement < searchValue) {
+            // cerca a destra
+            return recursiveBinarySearch(array, midIndex + 1, endIndex, searchValue);
+        } else {
+            // cerca a sinistra
+            return recursiveBinarySearch(array, 0, midIndex - 1, searchValue);
+        }
     }
 }

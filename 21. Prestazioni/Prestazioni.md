@@ -70,7 +70,7 @@
 
 ### analisi prestazioni - selection sort
 #### analisi numero accessi lettura/scrittura al variare di n
-- **Conteggio acc**essi all'array nella prima iterazione del ciclo esterno (i=0)
+- **Conteggio accessi** all'array nella prima iterazione del ciclo esterno (i=0)
 	- per trovare elemento minore: $n$ accessi
 	- 4 accessi per swap
 		- caso peggiore: serve sempre effettuare lo swap
@@ -147,21 +147,33 @@ for (int i = 0; i < n; i++) {
 
 ### analisi prestazioni - insertion sort
 - Array $n$ elementi
-- Ciclo esterno: $n-1$ iterazioni
+- Ciclo esterno: $n-1$ iterazioni (parto da 1)
 - A ogni iterazione
 	- 2 accessi (1 in lettura prima del ciclo e 1 prima in scrittura)
 	- ciclo interno
 		- 3 accessi per ogni elemento a sinistra
 - Caso peggiore: (dati ordinati al rovescio)
-	- $T(n)=[2+(3*1)+(3*2)+(3*3)+(3*4)] = ... = O(n^2)$
+	- 2 accessi (lettura/scrittura) per ogni iterazione: $(n-1)$ volte
+	- 3 accessi per ogni elemento da spostare a sinistra
+		- $1+2+3+...+(n-1)=3\sum^{n-1}_{k=0}k=3\frac{(n-1)n}{2}$
+	- totale
+		- $T(n)=2(n-1)+3\frac{(n-1)n}{2}=O(n^2)$
 - Caso migliore: (dati già ordinati)
-	- il ciclo interno non esegue mai iterazioni
-	- $3*(n-1)=O(n)$
+	- per ogni iterazione: $(n-1)$ volte
+		- 2 accessi (lettura/scrittura)
+		- 1 accesso nel ciclo interno per verificare che la condizione sia verificata
+	- totale: 
+		- $T(n)=3*(n-1)=O(n)$
 - Caso medio: richiede in media lo spostamento di metà degli elementi alla sua sinistra
-	- $O(n^2)$
->[!todo] Completo
+	- stimo metà accessi nel ciclo interno
+	- totale
+		- $T(n)=2(n-1)+3\frac{(n-1)n}{4}=O(n^2)$
 
 ### confronto tra ordinamenti
+- Se l'array è quasi ordinato, conviene "insertion sort" altrimenti "merge sort"
+- Esempio notevole
+	-  un array che viene mantenuto ordinato per effettuare ricerche, inserendo ogni tanto un nuovo elemento e poi riordinandolo periodicamente
+
 ![[Confronto tra ordinamenti.png]]
 
 ### analisi prestazioni - linear search
@@ -172,18 +184,18 @@ for (int i = 0; i < n; i++) {
 - Algoritmo è ricorsivo
 - $T(n) = T\left(\frac{n}{2}\right)+ 1$
 - Risolvo per **sostituzioni successive**
-- $T(n) =  T(\frac{n}{2})+ 1 =  T(\frac{n}{4})+ 1 + 1 = T\left(\frac{n}{2^k}\right)+ k$
-- Arrivo al caso base $T(1)$ quando $\frac{n}{2^{k}}= 1$ ovvero $k=\log_{2}n$
-- $T(n) = \log2 n + 1 = O(\log n)$
-- Ricontrollo
+- $T(n) =  T(\frac{n}{2})+ 1 =  T(\frac{n}{4})+ 1 + 1 = ...=T\left(\frac{n}{2^k}\right)+ k$
+- Arrivo al caso base $T(1)$ quando $\frac{n}{2^{k}}= 1$ ovvero $k=\log_{2}n \Leftrightarrow n=2^k$
+- $T(n) = T(1) + \log_{2}n = 1 + \log_{2}n = O(\log n)$
 
 ### analisi prestazioni - algoritmo di fibonacci ricorsivo
-- Ricorsione multipla
-- $F_n = F_{n-1} + F_{n-2}$
-- $T(n) = T(n-1)+ T(n-2) > T(n-2) + T(n-2) = 2T(n-2) > 2^2(n-2*2)>2^{k}*T(n-2k)$
-- $T(1)$ si ha quando $n-2k=1$ ovvero $k=\frac{n-1}{2}$
-- $T(n) = T(n-1)+ T(n-2) < T(n-1) + T(n-1) < 2T(n-1) < 2^2(n-1*2)<2^{k}*T(n-k)$
-- $T(1)$ si ha quando $n-k=1$ ovvero $k=n-1$
-- Altri calcoli
-- $O(2^n)$
-
+- Ricorsione multipla ($F_n = F_{n-1} + F_{n-2}$)
+- $T(n) = T(n-1)+ T(n-2) > T(n-2) + T(n-2)$
+	    $= 2T(n-2) > 4T(n-4)>2^{k}*T(n-2k)$
+	- $T(1)$ si ha quando $n-2k=1$ ovvero $k=\frac{n-1}{2}$
+	- $T(n)<2^{\frac{n-1}{2}}$
+- $T(n) = T(n-1)+ T(n-2) < T(n-1) + T(n-1)$
+	    $= 2T(n-1) > 4T(n-2)>2^{k}*T(n-k)$
+	- $T(1)$ si ha quando $n-k=1$ ovvero $k=n-1$
+	- $T(n)>2^{n-1}$
+- $2^{n-1} < T(n) < 2^{\frac{n-1}{2}} \implies T(n)=O(2^n)$
