@@ -18,10 +18,6 @@
 class Sottoclasse extends Superclasse {...}
 ```
 
-### superclasse universale object
-- Tutte le classi ereditano dalla superclasse universale ```Object```
-- se ```extends```non viene indicato esplicitamente usa ```java.lang.Object```
-
 ### terminologia e notazione
 - Termini **superclasse** e **sottoclasse** derivano dalla **teoria degli insiemi**
 - Nel diagramma ereditarietà viene indicato con la freccia a punta triangolo vuoto
@@ -37,7 +33,44 @@ class Sottoclasse extends Superclasse {...}
 ### costruttori nella sottoclasse
 - Posso chiamare il costruttore della superclasse attraverso ```super()```
 - Viene invocato automaticamente se non scritto esplicitamente
-
 ### conversione fra riferimenti
-- Posso usare come tipo di un oggetto anche una sua **superclasse**
+- Convertire da tipo **sottoclasse** a **superclasse*
+	- la conversione avviene automaticamente
 	- posso però solo usare i metodi del tipo che ho definito
+- Conversione da tipo **superclasse** a tipo **sottoclasse**
+	- NON avviene automaticamente
+	- posso farla solo con un **cast**
+		- se non si può fare: ```ClassCastException```
+- Posso accettare come parametro un oggetto di tipo **superclasse**
+	- e posso passare in quel metodo qualunque oggetto di una sua **sottoclasse**
+### polimorfismo
+- **Polimorfismo** = "molte forme"
+	- il tipo **non determina in modo completo** il tipo dell'oggetto a cui essa si riferisce
+- Ricorda: i types sono noti solo all'interprete di java, **non** in fase di **esecuzione**
+	- il tipo di una variabile oggetto non influenza il contenuto della variabile oggetto stessa
+	- l'esecuzione di un metodo ==è sempre determinata dal tipo dell'oggetto e non dal tipo della variabile oggetto==
+- Esempio
+	- creo metodo ```deposit``` nella superclasse e lo sovrascrivo nella sottoclasse
+	- creo oggetto di tipo sottoclasse e poi lo converto nel tipo superclasse
+	- chiamo metodo ```deposit```nell'oggetto creato e verrà usato quello della sottoclasse
+#### early and late binding
+- ==Selezione anticipata==
+	- nel caso dell'overload, è il **compilatore** a scegliere quale metodo chiamare in base al **tipo**
+- ==Selezione posticipata==
+	- avviene nel caso del polimorfismo
+	- tra due metodi (superclasse, sottoclasse), a scegliere quale metodo chiamare è l'**interprete**
+	- non può scegliere in base al tipo perché nel bytecode non sono presenti types
+### operatore "instanceof"
+- Verificare se una variabile di tipo superclasse è anche di tipo sottoclasse
+	- buona pratica prima di effettuare un cast
+```java
+if (varOggetto instanceof NomeClasse) {
+	...
+}
+```
+### superclasse universale object
+- Tutte le classi ereditano dalla superclasse universale ```Object```
+- se ```extends```non viene indicato esplicitamente usa ```java.lang.Object```
+
+#### metodi principali di object
+![[Metodi classe object.png]]

@@ -1,9 +1,10 @@
 public class AccountTester {
     public static void main(String[] args) {
-        SavingsAccount sAccount = new SavingsAccount(10);
+        SavingsAccount account1 = new SavingsAccount(10);
 
-        SimpleBankAccount bAccount = sAccount;
-        Object oAccount = bAccount;
+        SimpleBankAccount account2 = new SimpleBankAccount();
+
+        account1.transfer(10, account2);
 
         // bAccount.addInterest(); -> errore
     }

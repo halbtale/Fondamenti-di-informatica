@@ -20,4 +20,9 @@ public class SimpleBankAccount {
     public double getBalance() {
         return balance;
     }
+
+    public void transfer(double amount, SimpleBankAccount otherAccount) {
+        withdraw(amount);
+        otherAccount.deposit(amount);
+    }
 }
