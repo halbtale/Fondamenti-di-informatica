@@ -17,7 +17,6 @@
 ```java
 class Sottoclasse extends Superclasse {...}
 ```
-
 ### terminologia e notazione
 - Termini **superclasse** e **sottoclasse** derivano dalla **teoria degli insiemi**
 - Nel diagramma ereditarietà viene indicato con la freccia a punta triangolo vuoto
@@ -56,6 +55,8 @@ class Sottoclasse extends Superclasse {...}
 #### early and late binding
 - ==Selezione anticipata==
 	- nel caso dell'overload, è il **compilatore** a scegliere quale metodo chiamare in base al **tipo**
+	- tra diversi metodi di overload, viene sempre scelto quello più specifico
+		- dove il compilatore deve fare meno conversioni
 - ==Selezione posticipata==
 	- avviene nel caso del polimorfismo
 	- tra due metodi (superclasse, sottoclasse), a scegliere quale metodo chiamare è l'**interprete**
@@ -71,6 +72,39 @@ if (varOggetto instanceof NomeClasse) {
 ### superclasse universale object
 - Tutte le classi ereditano dalla superclasse universale ```Object```
 - se ```extends```non viene indicato esplicitamente usa ```java.lang.Object```
-
 #### metodi principali di object
 ![[Metodi classe object.png]]
+#### metodo "to string"
+- Metodo che viene invocato automaticamente quando si chiama ```println()```
+- Di default, ```toString()``` restituisce ```NomeClasse@hashcode```
+	- hashcode identifica indirizzo di memoria oggetto
+- È utile sovrascrivere ```toString()```per restituire **informazioni di stato** dell'oggetto
+	- ```return getClass().getName() + [informazioni]```
+#### metodo "equals"
+- Di default, ```equals(Object otherObject)```confronta indirizzi di memoria variabili oggetto
+- È utile sovra-scriverlo per dare informazioni sulla coincidenza degli **stati degli oggetti**
+	- es. confrontare "balance" di "BankAccount"
+- Per sovrascriverlo, devo sempre usare come parametri nella firma ```Object otherObject```
+### controllo di accesso
+- 4 livelli
+	- ```public```
+	- ```package```
+		- accesso all'interno del package
+		- impostazione di default
+	- ```protected```
+		- accessibili alle sottoclassi
+	- ```private```
+### classi e metodi final
+- Un metodo ```final```non può essere sovrascritto da sottoclassi
+- Una classe ```final```non può avere sottoclassi
+	- esempio: classe ```String```
+### classi astratte
+- Classi che definiscono i metodi senza implementarli
+	- non posso creare un'istanza di una classe astratta direttamente
+	- devo per forza implementare una classe astratta attraverso una sottoclasse
+- Sintassi:
+```java
+public abstract class LaMiaClasseAstratta {
+	public abstract ilMioMetodoAstratto area();
+}
+```

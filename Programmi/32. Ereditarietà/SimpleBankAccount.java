@@ -25,4 +25,22 @@ public class SimpleBankAccount {
         withdraw(amount);
         otherAccount.deposit(amount);
     }
+
+    public String toString() {
+        return getClass().getName() + "[balance=" + balance + "]";
+    }
+
+    public boolean equals(Object otherObject) {
+        BankAccount otherAccount = (BankAccount) otherObject;
+        return balance == otherAccount.balance;
+    }
+
+    public int compareTo(Object object) {
+        BankAccount otherBankAccount = (BankAccount) object;
+        if (balance < otherBankAccount.balance)
+            return -1;
+        if (balance > otherBankAccount.balance)
+            return 1;
+        return 0;
+    }
 }

@@ -19,4 +19,8 @@ public class SavingsAccount extends SimpleBankAccount {
         super.deposit(amount);
         withdraw(FEE);
     }
+
+    public String toString() {
+        return super.toString() + "[interestRate=" + interestRate + "]";
+    }
 }

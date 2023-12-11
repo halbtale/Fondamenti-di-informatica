@@ -45,8 +45,13 @@ public static void selectionSort(int[] v, int vSize) {
 #### implementazione in java
 ![[Insertion Sort Code.png]]
 
-
-
 ### ordinamento di oggetti
 - Si possono applicare algoritmi di ordinamento a oggetti, non solo a numeri interi
 - Gli algoritmi rimangono quasi invariati: l'unica differenza è l'utilizzo di ```compareTo()```
+### algoritmi di ordinamento di libreria
+- Package: ```java.util.Arrays```
+- Metodo ```sort```
+	- utilizza algoritmo ==QuickSort==
+	- ordina l'array di dati fondamentali e di Comparable
+- Metodo ```binarySearch```
+	- restituisce posizione oggetto come numero intero
