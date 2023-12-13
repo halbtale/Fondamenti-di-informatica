@@ -1,6 +1,6 @@
 public class StackSwapper {
     public static void main(String[] args) {
-        Stack s = new StackX();
+        Stack s = new FixedArrayStack();
         s.push("Pippo");
         s.push("Pluto");
         s.push("Paperino");
@@ -13,7 +13,7 @@ public class StackSwapper {
     }
 
     private static Stack swapAndClear(Stack s) {
-        Stack p = new StackY();
+        Stack p = new FixedArrayStack();
         while (!s.isEmpty())
             p.push(s.pop());
         return p;

@@ -23,26 +23,6 @@ public interface Container {
 	void makeEmpty();
 }
 ```
-### pila (stack)
-- Pila di oggetti che possono essere inseriti ed estratti secondo comportamento ==LIFO==
-	- **Last In, First Out**
-	- possono essere inseriti/estratti/ispezionati solo dalla cima della pila
-#### interfaccia
-- Definisce le operazioni
-	- ```push```: inserisce un oggetto in cima alla pila
-	- ```pop```: elimina l'oggetto che si trova in cima alla pila
-	- ```top```: ispeziona elemento in cima alla pila
-```java
-public interface Stack extends Container {
-	void push(Object obj);
-	Object pop();
-	Object top();
-}
-```
-#### utilizzo di pile
-- Browser
-	- andare alla pagina precedente/successiva
-- Editor di testi
-	- Control Z (operazione di undo)
-- Java Stack
-	- utilizzata nella JVM
+### estrarre oggetti da strutture dati
+- Bisogna usare un **cast** per ottenere un riferimento del tipo originario
+	- si può controllare che sia del tipo corretto attraverso operatore ```instanceof```
