@@ -185,7 +185,7 @@ public class ArrayAlgs {
             return recursiveBinarySearch(array, midIndex + 1, endIndex, searchValue);
         } else {
             // cerca a sinistra
-            return recursiveBinarySearch(array, 0, midIndex - 1, searchValue);
+            return recursiveBinarySearch(array, startIndex, midIndex - 1, searchValue);
         }
     }
 }

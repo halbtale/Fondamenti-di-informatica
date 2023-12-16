@@ -13,4 +13,3 @@
 	- ripeto finché non lo trovo
 - È comodo scriverlo in modo ricorsivo
 ![[Binary Search.png]]
-

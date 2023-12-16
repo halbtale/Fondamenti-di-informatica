@@ -18,11 +18,12 @@ public static int factorial(int n) {
 	- esegue il metodo invocato fino alla sua terminazione
 	- riprende l'esecuzione del metodo invocante dal punto in cui era stato sospeso
 - Non è mai **necessaria** perché può essere sempre tradotta in modo non ricorsivo
+	- l'**interprete** si fa carico di eliminare la ricorsione in runtime
 
 #### struttura algoritmo ricorsivo
-- Caso base: valore di partenza noto
+- ==Caso base==: valore di partenza noto
 	- possono esserci più casi base
-- Passo ricorsivo: metodo che chiama se stesso avvicinandosi al caso base
+- ==Passo ricorsivo==: metodo che chiama se stesso avvicinandosi al caso base
 
 > [!attention] Ricorsione infinita
 > Se manca caso base o non si semplifica il problema ad ogni iterazione, il programma terminerà con l'eccezione "StackOverflowError"

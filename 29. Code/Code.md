@@ -11,7 +11,7 @@
 - Task scheduler
 #### coda circolare
 - Politica ==round robin==
-- Ciò che viene estratto poi viene essere re-inserito
+	- 
 ![[Coda circolare.png]]
 ### interfaccia
 - Definisce le operazioni:

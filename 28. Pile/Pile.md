@@ -50,13 +50,13 @@ public interface Stack extends Container {
 	- $T(n)=\frac{[(n-1)*O(1)+O(n)]}{n}=\frac{O(n)}{n}=O(1)$
 - su ```push```con costante **addittiva**
 	- dimensione diventa $n+k$
-	- operazioni lente sono $\frac{n}{k}$
-	- $T(n)=\frac{(n-n/k)*O(1)+(n/k)*O(1)}{n}=[...]=O(n)$
+	- operazioni lente sono $\frac{n}{k}$ (ogni k elementi devo effettuare un resize) e sono $O(n)$
+	- operazioni veloci senza resize sono dunque $n-\frac{n}{k}$
+	- sia $n-\frac{n}{k}=\frac{k-1}{k}n=O(n)$ e $\frac{n}{k}=\frac{1}{k}n=O(n)$
+	- $T(n)=\frac{(n-\frac{n}{k} )*O(1)+(\frac{n}{k})*O(n)}{n}=\frac{O(n)+n*O(n)}{n}=\frac{O(n)}{n}+O(n)=O(1)+O(n)=O(n)$
 - Considerazioni generali
 	- push ha prestazioni $O(1)$ per qualsiasi costante **moltiplicativa**
 	- push ha prestazioni $O(n)$ per qualsiasi costante **addittiva**
-
->[!note] Ricontrollo calcoli
 
 ### pile di dati fondamentali
 - Trasformare dato fondamentale in oggetto attraverso **classi involucro** (**wrapper**)

@@ -45,14 +45,13 @@
 ### big-o notation 
 - Si ottiene considerando soltanto il termine che si incrementa più rapidamente al variare di n, ignorando coefficienti costanti
 - $f(n)=O(g(n))$
-	- $\exists C>0\ : f(n)/g(n) < C \, \, def$
-	- $f(n)$ ==cresce non più velocemente== di $g(n)$
+	- $f(n)$ ==cresce in egual modo o più lentamente== di $g(n)$
+	- relazione con gli o-piccolo
+		- $f(n) = o(g(n)) \lor f(n) \sim l * g(n) \text{ per } n\to\infty$
 	- es: $f(n)=\frac{1}{2}n^2=O(n^2)=O(n^3)$
 - $f(n)=\Omega(g(n))$
-	- $\exists C>0\ : f(n)/g(n) > C \, \, def$
-	- $f(n)$ ==cresce non più lentamente di $g(n)$
+	- $f(n)$ ==cresce in egual modo o più velocemente di $g(n)$
 - $f(n)=\Theta(g(n))$
-	-  $\exists C1,C2>0\ : C1 < f(n)/g(n) < C2 \, \, def$
 	- $f(n)$ ==cresce con la stessa velocità di $g(n)$
 
 ### ordini di complessità
@@ -104,6 +103,13 @@ for (int i = 0; i < n; i++) {
 ```
 - Numero totale: $\sum^{n}_{i} i = \frac{n(n+1)}{2} = O(n^2)$
 	- cicli annidati di questo tipo hanno sempre prestazioni *O(n^2)*
+
+>[!question] Domanda
+>Se si aumenta di 10 volte la dimensione dei dati, come aumenta il tempo richiesto per ordinare i dati usando selectionSort?
+
+come aumenta il tempo richiesto per ordinare i
+
+dati usando **selectionSort**?
 
 ### analisi prestazioni - merge sort
 #### analisi delle singole fasi
@@ -187,6 +193,9 @@ for (int i = 0; i < n; i++) {
 - $T(n) =  T(\frac{n}{2})+ 1 =  T(\frac{n}{4})+ 1 + 1 = ...=T\left(\frac{n}{2^k}\right)+ k$
 - Arrivo al caso base $T(1)$ quando $\frac{n}{2^{k}}= 1$ ovvero $k=\log_{2}n \Leftrightarrow n=2^k$
 - $T(n) = T(1) + \log_{2}n = 1 + \log_{2}n = O(\log n)$
+
+>[!question] Domanda
+>Si immagini di cercare con **binarySearch** un numero telefonico in un array **_ordinato_** di 1000000 di dati. Quanti dati vanno esaminati mediamente per trovare il numero?
 
 ### analisi prestazioni - algoritmo di fibonacci ricorsivo
 - Ricorsione multipla ($F_n = F_{n-1} + F_{n-2}$)

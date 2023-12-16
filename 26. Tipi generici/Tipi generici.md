@@ -31,3 +31,15 @@ public class BankAccount implements Comparable<BankAccount> {
 > [!error] Attenzione
 > Se tento di confrontare oggetti diversi ottengo ```ClassCastException```
 
+#### metodo statico generico
+- Si possono utilizzare i generics anche per metodi statici
+- Esempio:
+```java
+public static <T> int linearSearch(T[] array, int arraySize, T searchValue) {...}
+```
+#### tipi generici con restrizioni
+- Si può utilizzare l'operatore ```extends```per limitare un tipo generico ad un particolare type
+- Esempio: solo i tipi che implementano comparable
+```java
+public static <T extends Comparable<T>> int findMin(T[] array, int arraySize) {...}
+```

@@ -65,7 +65,7 @@ public interface Dictionary extends Container {
 - Metodi di accesso e modificatori per questi campi di esemplare
 
 ### implementazione dizionario non ordinato
-![[Pasted image 20231215114554.png|500]]
+![[ArrayDictionary.png|500]]
 
 ### implementazione dizionario ordinato
 - Insert

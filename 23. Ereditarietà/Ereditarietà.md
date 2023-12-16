@@ -29,6 +29,7 @@ class Sottoclasse extends Superclasse {...}
 ### variabili di instanza nella sottoclasse
 - **Non** può essere sovrascritta una variabile di istanza nella sottoclasse
 	- se ne creo due uguali, è come se creassi due variabili diverse
+- Anche le variabili ```private```vengono ereditate nella sottoclasse, solo non accessibili
 ### costruttori nella sottoclasse
 - Posso chiamare il costruttore della superclasse attraverso ```super()```
 - Viene invocato automaticamente se non scritto esplicitamente
