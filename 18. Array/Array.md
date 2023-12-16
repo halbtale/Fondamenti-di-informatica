@@ -6,9 +6,11 @@
 - Può essere utilizzato anche come parametro esplicito
 - Sintassi:
 ```java
-NomeTipo[] nomeRiferimento = new NomeTipo[lunghezza]
+NomeTipo[] riferimentoArray = new NomeTipo[lunghezza]
 
 riferimentoArray[indice]
+
+riferimentoArray.length; // lunghezza 
 ```
 
 > [!error] Eccezioni
