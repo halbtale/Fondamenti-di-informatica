@@ -29,3 +29,9 @@ String s = in.nextLine(); // fino a \n, \r
 ```java
 in.useLocale(Locale.US);
 ```
+
+>[!error] Eccezioni
+>- ```NoSuchElementException```: next/nextLine se input non è disponibile
+>- ```InputMismatchException```: nextInt/nextDouble se input non è formato numerico
+>- ```IllegalStateException```: si cerca di leggere con Scanner chiuso
+

@@ -3,7 +3,7 @@
 - Primo documento che descrive l'architettura di un computer
 	![[Architettura.png|650]]
 - Vantaggi: 
-	- **semplicità**
+	- **semplicità**: unica linea di connessione
 	- **flessibilità**: si possono aggiungere tanti elementi senza modificare dispositivo di base
 	- **standardizzabilità**: regole precise di comunicazione tra dispositivi diversi
 - Svantaggi
@@ -11,11 +11,11 @@
 	- **limitata capacità**: al crescere del numero di dispositivi collegati
 	- **sovraccarico del processore**: tutto va al processore
 #### bus presenta in realtà 3 bus distinti
-- Bus dei **dati**
+- Bus dei **dati** (da e verso la CPU)
 	- i dati da trasferire
-- Bus degli **indirizzi**
+- Bus degli **indirizzi** (solo da CPU)
 	- dove i dati devono andare
-- Bus dei **segnali di controllo**
+- Bus dei **segnali di controllo** (solo da CPU)
 	- segnali di stop, reset, etc
 ### cpu
 - **Central Processing Unit**
@@ -64,7 +64,9 @@
 		- S5. invio dei risultati dell'apposito registro
 - **Parallelismo a livello di processori**
 	- computer **multiprocessori**
+		- memoria comune
 	- **multicalcolatori** (+ computer contemporaneamente)
+		- memoria privata + scambio di messaggi
 #### programmazione parallela su gpu
 - **CUDA**
 	- ambiente di sviluppo in parallelo per GPU
@@ -73,7 +75,7 @@
 	- FFTs (Signal and image processing)
 	- Machine Learning
 ### memoria del computer
-- Suddivisa in celle (o locazioni di memoria)
+- Suddivisa in **celle** (o locazioni di memoria)
 	- ciascuna ha un indirizzo
 	- ciascuna cella contiene un numero definito di bit
 ![[Gerarchie di memoria.png|700]]

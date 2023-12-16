@@ -43,7 +43,7 @@ tipoAccesso NomeClasse(parametri) {
 - Obiettivo
 	- inizializzare oggetto di una classe
 - Costruttore di default
-	- inizializza automaticamente tutte le variabili di istanza
+	- **inizializza** automaticamente tutte le variabili di istanza
 		- numerico -> 0
 		- boolean -> false
 		- oggetti -> null

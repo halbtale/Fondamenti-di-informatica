@@ -20,6 +20,9 @@ String greeting = "Hello world";
 String sub = greeting.substring(1, 4); // "ell"
 String sub2 = greeting.substring(6); // "world"
 ```
+
+>[!error] Eccezione possibile
+> Si cerca di accedere ad un indice al di fuori della stringa: ```StringIndexOutOfBoundsException```
 #### change Case
 ```java
 String s = "Hello";
@@ -42,6 +45,10 @@ double myDouble = Double.parseDouble(myString);
 ```java
 String myString = Integer.toString(myInt);
 ```
+
+>[!error] Eccezione possibile
+> - ```NumberFormatException```: convertire in numero una stringa che non lo è
+
 ### i char
 - Singolo carattere
 ```java

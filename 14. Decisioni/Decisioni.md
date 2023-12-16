@@ -43,6 +43,7 @@ if (s1.compareTo(s2) < 0)
 	- negativo: s1 precede s2 
 	- positivo: s1 segue s2
 	- zero: s1 identico a s2
+- N.B. spazio bianco < numeri < lettere
 ### confrontare oggetti
 - Metodo ```equals()``` si può applicare a qualsiasi oggetto
 	- affinché funzioni bene bisognerebbe ridefinire il metodo nelle proprie classi
@@ -52,6 +53,14 @@ if (s1.compareTo(s2) < 0)
 - Principali: ```&&```,```||```,```!```
 - **Valutazione pigra** (o **cortocircuito**)
 	- la valutazione termina appena è possibile decidere il risultato
+- Ordine operatori (da quelli eseguiti prima a dopo)
+	- parentesi
+	- !
+	- operazioni matematiche
+	- maggiore/minore
+	- &&
+	- ||
+	- =
 #### leggi di de morgan
 ```java
 !(A && B) == !A || !B

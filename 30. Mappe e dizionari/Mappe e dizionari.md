@@ -34,3 +34,48 @@ public interface Dictionary extends Container {
 	- mantenere chiavi **ordinate**
 		- + performante nella lettura (si può usare binary search)
 	- lasciare chiavi **non ordinati**
+### performance dizionario
+#### dizionario con array ordinato
+- **Ricerca**
+	- prestazione $O(\log n)$
+	- binary search
+- **Rimozione** 
+	- prestazione $O(n)$
+	- bisogna effettuare una ricerca e poi spostare mediamente $\frac{n}{2}$ elementi
+- **Inserimento**
+	- prestazione $O(n)$
+		- o con algoritmo diverso $O(n log n)$
+	- si può usare insertion sort in un array ordinato
+#### dizionario con array non ordinato
+- **Ricerca**
+	- prestazione $O(n)$
+	- ricerca lineare
+- **Rimozione**
+	- prestazione $O(n)$
+	- bisogna effettuare ricerca lineare e poi spostare nella posizione trovata l'ultimo elemento
+- **Inserimento**
+	- prestazione $O(n)$
+	- Bisogna rimuovere (sovrascrivere) un elemento con la stessa chiave, se c'è, e poi inserire il nuovo elemento nella ultima posizione dell’array (l’ordinamento non interessa)
+![[Performance.png]]
+### la classe pair
+- Contiene elementi formati da **coppie chiave/valore**
+- Due **campi di esemplare**
+	- key (Comparable)
+	- value (Object)
+- Metodi di accesso e modificatori per questi campi di esemplare
+
+### implementazione dizionario non ordinato
+![[Pasted image 20231215114554.png|500]]
+
+### implementazione dizionario ordinato
+- Insert
+	- deve mantenere array ordinato (con InsertionSort)
+- Remove e find devono usare ricerca binaria
+- Remove deve ricompattare l'array dopo la rimozione, mantenendolo ordinato
+
+>[!todo] TODO
+>Implemento la stessa classe ma con SortedArrayDictionary
+
+
+
+

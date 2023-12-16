@@ -3,6 +3,7 @@
 - **Linguaggio macchina**
 	- può essere eseguito dalla CPU
 	- dipende dal tipo di CPU
+		- insieme di istruzioni macchina di una CPU: **instruction set**
 - Istruzioni codificate in **configurazioni di bit**
 	- es: **21** 40 **16** 100 **163** 240
 		- 21: carica in un registro un valore 40
@@ -87,12 +88,12 @@ javac NomeFile.java
 ### linguaggi compilati vs linguaggi interpretati
 - **Linguaggi compilati**
 	- C++
-	- massima efficienza
+	- massima ==efficienza==
 	- devono essere compilati per ogni processore
 		- generano file eseguibile
 - **Linguaggi interpretati**
 	- Python
-	- massima portabilità
+	- massima ==portabilità==
 	- il codice sorgente viene interpretato direttamente
 - **Java**
 	- codice sorgente -> bytecode (codice macchina per JVM) -> codice macchina per CPU

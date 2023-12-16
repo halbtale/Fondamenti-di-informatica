@@ -1,8 +1,8 @@
 ## file e flussi
 ### leggere file di testo
+- Utilizzo package ```java.io``` 
 - Creo oggetto ```FileReader```
 	- apre in lettura il file
-	- se il file non esiste: ```FileNotFoundException```
 - Creo oggetto ```Scanner```
 - Collegare oggetto Scanner al FileReader
 ```java
@@ -13,7 +13,10 @@ in.close();
 ```
 
 >[!error] Attenzione
->Ricorda di chiudere i file aperti in lettura ```in.close()```
+>- Ricorda di chiudere i file aperti in lettura ```in.close()```
+>- ```FileNotFoundException```: se il file non esiste
+>- importante chiudere reader: ```reader.close()```
+>- È obbligatorio gestire ```IOException```
 
 #### rilevare la fine dell'input
 - Basta usare ```hasNext()```o ```hasNextLine()```
@@ -34,7 +37,7 @@ out.println("Una frase");
 
 >[!error] Attenzione
 >- Ricorda di chiudere i file aperti in scrittura ```out.close()```
->- È obbligatorio gestire IOException
+>- È obbligatorio gestire ```IOException```
 
 ### scomposizione di stringhe
 - Utente inserisce + dati per riga

@@ -108,3 +108,27 @@ public abstract class LaMiaClasseAstratta {
 	public abstract ilMioMetodoAstratto area();
 }
 ```
+
+### classi interne
+- Ci sono alcune classi che potrebbero venire usate solo internamente da un'altra classe
+- Posso creare una classe all'interno di un'altra classe
+```java
+public class ClasseEsterna {
+	<tipoaccesso> class ClasseInterna {
+		...	
+	}
+	...
+}
+```
+- Il compilatore traduce due file bytecode
+	- ```ClasseEsterna.class```
+	- ```ClasseEsterna$ClasseInterna.class```
+#### vantaggi e limitazioni
+- Ciascuna delle due classi ha accesso a tutti i metodi/variabili dell'altra, anche se privati
+- Posso creare oggetti ```ClasseInterna```solo dentro metodi non statici di ```ClasseEsterna```
+- La classe interna può essere resa **inaccessibile** al codice di altre classi
+#### uso di classi interne
+- Se la classe interna è pubblica, si può accedere ad essa con:
+	- ```ClasseEsterna.ClasseInterna```
+- Non è **MAI** possibile creare oggetti di tipo ```ClasseInterna```
+- Si può definire **variabili** oggetto di **TIPO** ```ClasseInterna```

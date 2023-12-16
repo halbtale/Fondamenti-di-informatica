@@ -8,7 +8,7 @@
 	- $a_k$ cifra in posizione k
 ### base binaria
 - È la più semplice da manipolare per un computer
-	- acceso/spento
+	- acceso/spentoSWDE4RF5T
 	- tensione alta/bassa
 #### conversione da binario a decimale
 - $(1101)_2=(1*2^3+1*2^2+0*2^1+1*10^0)_{10}=(13)_{10}$
@@ -117,9 +117,10 @@ altrimenti:
 ### numeri reali in virgola mobile
 - Notazione a ==**mantissa ed esponente**==
 - $1024.3=1.0243*10^3$
-	- alcuni bit usati per la base
+	- alcuni bit usati per la base (mantissa)
 	- alcuni bit usati per l'esponente
 - Computer utilizzano base 2
+	- $(2^0+2^{-1}+2^{-2}+...+2^{-23})*2^e=1.110\dots1*2^E$
 #### ieee 754
 - Standard internazionale
 - **Precisione singola **(32 bit)
@@ -143,15 +144,15 @@ altrimenti:
 - In codifica a 32 bit
 	- Numero più piccolo: $1.8*10^{-38}$
 	- Numero più grande: $3.4*10^{+38}$
-	- Distanza tra due numeri reali rappresentabili: $\delta=2^{-23}*2^E$
-		- $E$ = valore esponente
-		- la distanza dipende dal valore dell'esponente
 #### densità di numeri in virgola mobile
 - Si può calcolare con:
-- $\delta=2^{-m}\,*2^e$
-	- m = bit mantissa
-	- e = esponente
-
+	- $\delta=2^{-m}\,*2^E$
+		- m = bit mantissa
+		- E = esponente
+- Distanza tra due numeri reali rappresentabili a 32 bit: $\delta=2^{-23}*2^E$
+		- $2^{-23}$ = numero più piccolo mantissa a 23 bit
+		- $E$ = valore esponente
+		- la distanza dipende dal valore dell'esponente
 #### arrotondamento in virgola mobile
 - Alcuni numeri decimali non hanno una rappresentazione esatta in binario
 	- Es. 4.35

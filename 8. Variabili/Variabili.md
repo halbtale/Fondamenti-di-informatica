@@ -7,7 +7,7 @@
 nomeTipo nomeVariabile;
 // Assegnazione
 nomeVariabile = espressione;
-// Definizione e assegnazione
+// Definizione e assegnazione (inizializzazione)
 nomeTipo nomeVariabile = espressione;
 ```
 #### restrizioni sui nomi
@@ -23,6 +23,7 @@ nomeTipo nomeVariabile = espressione;
 - Variabili e metodi -> iniziano con minuscola
 - Classi -> iniziano con maiuscola
 - Nomi composti -> camelCase e PascalCase
+
 ### costanti
 - Non possono essere modificate
 ```java
