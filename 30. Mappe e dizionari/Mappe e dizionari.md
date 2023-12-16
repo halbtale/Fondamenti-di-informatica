@@ -44,7 +44,7 @@ public interface Dictionary extends Container {
 	- bisogna effettuare una ricerca e poi spostare mediamente $\frac{n}{2}$ elementi
 - **Inserimento**
 	- prestazione $O(n)$
-		- o con algoritmo diverso $O(n log n)$
+		- o con algoritmo diverso $O(n \,\log n)$
 	- si può usare insertion sort in un array ordinato
 #### dizionario con array non ordinato
 - **Ricerca**
@@ -68,14 +68,8 @@ public interface Dictionary extends Container {
 ![[ArrayDictionary.png|500]]
 
 ### implementazione dizionario ordinato
-- Insert
-	- deve mantenere array ordinato (con InsertionSort)
+- Insert deve mantenere array ordinato (con InsertionSort)
 - Remove e find devono usare ricerca binaria
 - Remove deve ricompattare l'array dopo la rimozione, mantenendolo ordinato
-
->[!todo] TODO
->Implemento la stessa classe ma con SortedArrayDictionary
-
-
 
 

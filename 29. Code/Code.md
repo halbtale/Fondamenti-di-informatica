@@ -9,10 +9,6 @@
 	- clienti in coda
 - File da stampare vengono inseriti in una coda di stampa
 - Task scheduler
-#### coda circolare
-- Politica ==round robin==
-	- 
-![[Coda circolare.png]]
 ### interfaccia
 - Definisce le operazioni:
 	- ==enqueue==: inserisce oggetto nella coda
@@ -79,6 +75,11 @@ public void enqueue(Object obj) {
 	back = increment(back);
 }
 ```
+
+#### coda circolare
+- Politica ==round robin==
+	- la CPU esegue una porzione del processo che ha atteso più a lungo e poi viene re-inserito nell'ultima posizione
+![[Coda circolare.png]]
 
 ### gerarchia di classi e interfacce
 ![[GrowingCircularArrayQueue.png|500]]
