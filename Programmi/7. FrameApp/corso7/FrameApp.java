@@ -1,4 +1,3 @@
-package corso7;
 
 import javax.swing.*;
 

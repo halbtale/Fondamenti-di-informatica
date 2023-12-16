@@ -1,4 +1,3 @@
-package corso33;
 
 public class FixedArrayStack implements Stack {
     public final static int INIT_SIZE = 100;

@@ -1,4 +1,3 @@
-package corso33;
 
 public class ArrayDictionary implements Dictionary {
     protected Pair[] array;
@@ -6,7 +5,7 @@ public class ArrayDictionary implements Dictionary {
     protected final int INIT_SIZE = 100;
 
     public ArrayDictionary() {
-        array = new Pair[100];
+        array = new Pair[INIT_SIZE];
         makeEmpty();
     }
 

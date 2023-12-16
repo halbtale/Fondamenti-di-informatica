@@ -1,4 +1,3 @@
-package corso26;
 
 import java.io.FileReader;
 import java.io.IOException;

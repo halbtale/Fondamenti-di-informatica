@@ -1,4 +1,3 @@
-package corso27;
 
 /**
  * Classe di prova della classe ChessRook

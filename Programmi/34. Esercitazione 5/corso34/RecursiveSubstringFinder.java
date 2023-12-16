@@ -1,4 +1,3 @@
-package corso34;
 
 class RecursiveSubstringFinder {
     public static void main(String[] args) {

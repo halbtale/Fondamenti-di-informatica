@@ -1,4 +1,3 @@
-package corso23;
 
 import java.util.Scanner;
 import java.util.Locale;

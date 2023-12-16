@@ -1,4 +1,3 @@
-package corso33;
 
 public interface Queue extends Container {
     void enqueue(Object obj);

@@ -1,4 +1,3 @@
-package corso31;
 // /**
 // * Definisce un vettore aereo che puo' trovarsi in uno dei seguenti stati:
 // <br>

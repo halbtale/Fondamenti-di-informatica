@@ -1,4 +1,3 @@
-package corso2;
 
 /**
  * Lo scopo del programma è di sommare monete di valute diverse e restituire il

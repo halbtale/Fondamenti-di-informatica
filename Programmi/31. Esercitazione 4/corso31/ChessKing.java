@@ -1,4 +1,3 @@
-package corso31;
 
 public class ChessKing {
     private char row;

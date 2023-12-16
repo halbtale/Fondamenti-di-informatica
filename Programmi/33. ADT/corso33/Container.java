@@ -1,4 +1,3 @@
-package corso33;
 
 public interface Container {
     boolean isEmpty();

@@ -1,4 +1,3 @@
-package corso36;
 
 public class Animal implements Comparable<Animal> {
     public String toString() {

@@ -1,4 +1,3 @@
-package corso6;
 
 //HIDE
 //OUT canvas.png

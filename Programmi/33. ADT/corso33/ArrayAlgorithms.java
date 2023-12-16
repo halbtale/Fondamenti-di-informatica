@@ -1,3 +1,5 @@
+import java.util.Arrays;
+
 public class ArrayAlgorithms {
     @SuppressWarnings("unchecked")
     public static <T> T[] resizeArray(T[] oldArray, int newLength) {
@@ -127,7 +129,7 @@ public class ArrayAlgorithms {
 
             int j;
 
-            for (j = i; j > 0 && currentElement.compareTo(array[j]) < 0; j--) {
+            for (j = i; j > 0 && currentElement.compareTo(array[j - 1]) < 0; j--) {
                 array[j] = array[j - 1];
             }
 
@@ -154,7 +156,7 @@ public class ArrayAlgorithms {
         int midIndex = (endIndex + startIndex) / 2;
         T midElement = array[midIndex];
 
-        if (midElement.equals(searchValue)) {
+        if (midElement.compareTo(searchValue) == 0) {
             return midIndex;
         } else if (midElement.compareTo(searchValue) < 0) {
             return recursiveBinarySearch(array, midIndex + 1, endIndex, searchValue);

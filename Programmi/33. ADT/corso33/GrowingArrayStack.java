@@ -1,4 +1,3 @@
-package corso33;
 
 public class GrowingArrayStack extends FixedArrayStack {
     public void push(Object obj) {

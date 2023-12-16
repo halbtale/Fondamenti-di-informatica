@@ -1,4 +1,3 @@
-package corso36;
 
 public class Printer<T extends Comparable<T>> {
     T thingToPrint;

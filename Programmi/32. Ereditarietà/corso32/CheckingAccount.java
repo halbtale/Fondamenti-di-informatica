@@ -1,4 +1,3 @@
-package corso32;
 
 public class CheckingAccount extends SimpleBankAccount {
     private int transactionCount;

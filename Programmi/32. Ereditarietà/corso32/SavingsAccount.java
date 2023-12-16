@@ -1,4 +1,3 @@
-package corso32;
 
 public class SavingsAccount extends SimpleBankAccount {
     private double interestRate;

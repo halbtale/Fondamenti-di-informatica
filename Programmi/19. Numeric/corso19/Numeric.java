@@ -1,4 +1,3 @@
-package corso19;
 
 public class Numeric {
     public static boolean approxEqual(double x, double y) {

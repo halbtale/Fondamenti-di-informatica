@@ -1,4 +1,3 @@
-package corso12;
 
 public class StringExperiment {
     public static void main(String[] args) {

@@ -1,4 +1,3 @@
-package corso22;
 
 public class ChessKnight {
     private String currentSquare;

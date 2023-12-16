@@ -1,4 +1,3 @@
-package corso27;
 
 public class Chronometer {
     private static final long NONE = -1L;

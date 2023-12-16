@@ -1,4 +1,3 @@
-package corso33;
 
 public class GrowingCircularArrayQueue extends FixedCircularArrayQueue {
     public void enqueue(Object obj) {

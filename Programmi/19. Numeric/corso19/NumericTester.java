@@ -1,4 +1,3 @@
-package corso19;
 
 public class NumericTester {
     public static void main(String[] args) {

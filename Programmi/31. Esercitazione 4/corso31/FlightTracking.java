@@ -1,4 +1,3 @@
-package corso31;
 // /**
 // * classe di prova della clase SimpleAircraft.java
 // *

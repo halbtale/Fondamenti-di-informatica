@@ -1,4 +1,3 @@
-package corso27;
 
 public class Padlock {
     private String pw;

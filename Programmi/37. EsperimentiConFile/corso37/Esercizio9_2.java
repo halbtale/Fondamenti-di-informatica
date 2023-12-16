@@ -1,4 +1,3 @@
-package corso37;
 
 import java.util.Scanner;
 import java.io.FileReader;

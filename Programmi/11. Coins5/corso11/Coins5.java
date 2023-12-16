@@ -1,4 +1,3 @@
-package corso11;
 
 public class Coins5 {
     public static void main(String[] args) {

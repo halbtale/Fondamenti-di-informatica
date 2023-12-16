@@ -1,4 +1,3 @@
-package corso4;
 
 import java.awt.Rectangle;
 

@@ -1,4 +1,3 @@
-package corso14;
 
 public class ALUExperiments {
     public static void main(String[] args) {

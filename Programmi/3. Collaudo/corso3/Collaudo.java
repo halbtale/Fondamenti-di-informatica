@@ -1,4 +1,3 @@
-package corso3;
 
 public class Collaudo {
     public static void main(String[] args) {

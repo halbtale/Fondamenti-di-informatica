@@ -127,7 +127,7 @@ public class ArrayAlgorithms {
 
             int j;
 
-            for (j = i; j > 0 && currentElement.compareTo(array[j]) < 0; j--) {
+            for (j = i; j > 0 && currentElement.compareTo(array[j - 1]) < 0; j--) {
                 array[j] = array[j - 1];
             }
 

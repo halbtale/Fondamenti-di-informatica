@@ -1,4 +1,3 @@
-package corso18;
 
 /**
  * Un conto bancario ha un saldo modificabile tramite depositi e prelievi

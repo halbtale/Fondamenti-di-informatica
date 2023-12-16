@@ -1,4 +1,3 @@
-package corso27;
 
 import java.util.Scanner;
 

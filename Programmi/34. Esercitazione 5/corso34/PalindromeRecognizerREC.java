@@ -1,4 +1,3 @@
-package corso34;
 
 public class PalindromeRecognizerREC {
     public static void main(String[] args) {

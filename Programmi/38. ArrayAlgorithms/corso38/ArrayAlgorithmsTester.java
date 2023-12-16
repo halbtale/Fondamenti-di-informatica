@@ -2,11 +2,13 @@ import java.util.Arrays;
 
 public class ArrayAlgorithmsTester {
     public static void main(String[] args) {
-        String[] array = { "Hello", "World", "Hi" };
+        String[] array = { "Hello", "World", "A", "B", "Z", "C" };
 
-        array = ArrayAlgorithms.resizeArray(array, 10);
-        array = ArrayAlgorithms.insert(array, array.length, 10, "OK");
+        ArrayAlgorithms.insertionSort(array, array.length);
 
         System.out.println(Arrays.toString(array));
+
+        int index = ArrayAlgorithms.binarySearch(array, array.length, "B");
+        System.out.println(index);
     }
 }

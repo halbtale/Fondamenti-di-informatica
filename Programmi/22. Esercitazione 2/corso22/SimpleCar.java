@@ -1,4 +1,3 @@
-package corso22;
 
 public class SimpleCar {
     public static final double INITIAL_SPEED = 10;

@@ -1,4 +1,3 @@
-package corso33;
 
 public interface Stack extends Container {
     void push(Object obj);

@@ -1,4 +1,3 @@
-package corso29;
 
 public class TerminalTester {
     public static void main(String[] args) {

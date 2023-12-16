@@ -1,4 +1,3 @@
-package corso23;
 
 public class Coin {
     private double value;

@@ -1,4 +1,3 @@
-package corso35;
 
 public class ClInterneTester {
     public static void main(String[] args) {

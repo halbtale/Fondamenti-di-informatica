@@ -1,4 +1,3 @@
-package corso28;
 
 public class ArrayAlgsTester {
     public static void main(String[] args) {

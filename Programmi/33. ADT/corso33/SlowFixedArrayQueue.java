@@ -1,4 +1,3 @@
-package corso33;
 
 public class SlowFixedArrayQueue implements Queue {
     protected Object[] array;

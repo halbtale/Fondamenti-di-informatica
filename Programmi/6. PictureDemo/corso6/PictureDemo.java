@@ -1,4 +1,3 @@
-package corso6;
 
 public class PictureDemo {
     public static void main(String[] args) {

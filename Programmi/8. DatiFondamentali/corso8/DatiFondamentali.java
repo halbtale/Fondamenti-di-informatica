@@ -1,4 +1,3 @@
-package corso8;
 
 import java.math.*;
 

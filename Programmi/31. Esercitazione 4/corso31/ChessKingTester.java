@@ -1,4 +1,3 @@
-package corso31;
 
 /**
  * Classe di prova della classe ChessKing

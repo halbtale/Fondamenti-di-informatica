@@ -1,4 +1,3 @@
-package corso35;
 
 public class ClEsterna { // metodi della classe esterna
     public ClInterna metEsterno() {

@@ -1,4 +1,3 @@
-package corso22;
 
 /**
  * Classe di prova della classe ChessKnight

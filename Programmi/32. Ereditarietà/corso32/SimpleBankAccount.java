@@ -1,4 +1,3 @@
-package corso32;
 
 import corso18.BankAccount;
 

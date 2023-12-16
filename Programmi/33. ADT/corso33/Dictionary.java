@@ -1,4 +1,3 @@
-package corso33;
 
 public interface Dictionary extends Container {
     void insert(Comparable key, Object value);

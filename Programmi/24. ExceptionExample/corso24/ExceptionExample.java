@@ -1,4 +1,3 @@
-package corso24;
 
 import java.io.*;
 import java.util.*;

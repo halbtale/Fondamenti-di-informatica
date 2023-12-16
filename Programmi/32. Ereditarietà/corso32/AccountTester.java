@@ -1,4 +1,3 @@
-package corso32;
 
 public class AccountTester {
     public static void main(String[] args) {

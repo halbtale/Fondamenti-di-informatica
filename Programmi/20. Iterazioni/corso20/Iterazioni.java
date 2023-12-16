@@ -1,4 +1,3 @@
-package corso20;
 
 public class Iterazioni {
     public static void main(String[] args) {

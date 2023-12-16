@@ -1,4 +1,3 @@
-package corso33;
 
 public class StackSwapper {
     public static void main(String[] args) {

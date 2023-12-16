@@ -1,4 +1,3 @@
-package corso28;
 
 public class ArrayAlgs {
     public static int[] resize(int[] oldArray, int newLength) {

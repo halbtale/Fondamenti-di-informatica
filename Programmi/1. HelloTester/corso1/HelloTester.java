@@ -1,4 +1,3 @@
-package corso1;
 
 /**
  * In un file sorgente può esistere solo una classe pubblica e il nome deve

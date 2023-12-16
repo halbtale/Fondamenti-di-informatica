@@ -1,4 +1,3 @@
-package corso5;
 
 public class AgeCalculator {
     public static void main(String[] args) {

@@ -1,4 +1,3 @@
-package corso33;
 
 public class FixedArrayQueue implements Queue {
     protected Object[] array;

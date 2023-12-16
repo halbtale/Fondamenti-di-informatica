@@ -1,4 +1,3 @@
-package corso18;
 
 import java.util.Scanner;
 

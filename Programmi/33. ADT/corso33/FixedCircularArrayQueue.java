@@ -1,4 +1,3 @@
-package corso33;
 
 public class FixedCircularArrayQueue extends FixedArrayQueue {
     protected int increment(int index) {

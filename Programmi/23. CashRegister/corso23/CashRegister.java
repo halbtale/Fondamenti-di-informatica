@@ -1,4 +1,3 @@
-package corso23;
 
 /**
  * Simulatore di una cassa

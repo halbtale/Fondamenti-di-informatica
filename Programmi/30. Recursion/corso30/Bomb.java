@@ -1,4 +1,3 @@
-package corso30;
 
 public class Bomb {
     public static void main(String[] args) {

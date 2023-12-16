@@ -1,4 +1,3 @@
-package corso10;
 
 import java.math.BigInteger;
 
