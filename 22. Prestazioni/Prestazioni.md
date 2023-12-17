@@ -107,10 +107,6 @@ for (int i = 0; i < n; i++) {
 >[!question] Domanda
 >Se si aumenta di 10 volte la dimensione dei dati, come aumenta il tempo richiesto per ordinare i dati usando selectionSort?
 
-come aumenta il tempo richiesto per ordinare i
-
-dati usando **selectionSort**?
-
 ### analisi prestazioni - merge sort
 #### analisi delle singole fasi
 - ==Creazione== dei due sottoarray
@@ -180,7 +176,7 @@ dati usando **selectionSort**?
 - Esempio notevole
 	-  un array che viene mantenuto ordinato per effettuare ricerche, inserendo ogni tanto un nuovo elemento e poi riordinandolo periodicamente
 
-![[Confronto tra ordinamenti.png]]
+![[Confronto tra ordinamenti.png|400]]
 
 ### analisi prestazioni - linear search
 - Devo sempre fare $n$ accessi

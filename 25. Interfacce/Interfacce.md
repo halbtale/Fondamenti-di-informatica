@@ -18,11 +18,17 @@ public interface NomeInterfaccia {
 	- si può fare il cast da tipo interfaccia a classe
 		- se si sbaglia: ```ClassCastException```
 
-### polimorfismo e interfacce
-- Solo in esecuzione la JVM determina il tipo di oggetto a cui una variabile si riferisce
-	- e chiama il metodo corrispondente
+>[!info] Polimorfismo e interfacce
+>Solo in esecuzione la JVM determina il tipo di oggetto a cui una variabile si riferisce e chiama il metodo corrispondente
+
+
 ### ordinamento di oggetti
 #### comparable
+- Il tutti gli oggetti che implementano comparable posso applicare ```compareTo()```
+- Il metodo ```compareTo```deve definire una **relazione di ordine totale**
+	- proprietà **antisimmetrica**
+	- proprietà **riflessiva**
+	- proprietà **transitiva
 ```java
 public interface Comparable {
 	int compareTo(Object object);
@@ -36,12 +42,7 @@ public class MyClass implements Comparable {
 
 Comparable myObject = new MyClass();
 ```
-- Il tutti gli oggetti che implementano comparable posso applicare ```compareTo()```
-- Il metodo ```compareTo```deve definire una **relazione di ordine totale**
-	- proprietà **antisimmetrica**
-	- proprietà **riflessiva**
-	- proprietà **transitiva
-![[CompareTo.png]]
+![[CompareTo.png|500]]
 #### selection sort per oggetti comparable
 ```java
 public static void selectionSort(Comparable[] v, int vSize);

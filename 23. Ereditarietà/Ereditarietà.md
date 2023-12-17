@@ -99,17 +99,6 @@ if (varOggetto instanceof NomeClasse) {
 - Un metodo ```final```non può essere sovrascritto da sottoclassi
 - Una classe ```final```non può avere sottoclassi
 	- esempio: classe ```String```
-### classi astratte
-- Classi che definiscono i metodi senza implementarli
-	- non posso creare un'istanza di una classe astratta direttamente
-	- devo per forza implementare una classe astratta attraverso una sottoclasse
-- Sintassi:
-```java
-public abstract class LaMiaClasseAstratta {
-	public abstract ilMioMetodoAstratto area();
-}
-```
-
 ### classi interne
 - Ci sono alcune classi che potrebbero venire usate solo internamente da un'altra classe
 - Posso creare una classe all'interno di un'altra classe
@@ -133,3 +122,14 @@ public class ClasseEsterna {
 	- ```ClasseEsterna.ClasseInterna```
 - Non è **MAI** possibile creare oggetti di tipo ```ClasseInterna```
 - Si può definire **variabili** oggetto di **TIPO** ```ClasseInterna```
+
+### classi astratte
+- Classi che definiscono i metodi senza implementarli
+	- non posso creare un'istanza di una classe astratta direttamente
+	- devo per forza implementare una classe astratta attraverso una sottoclasse
+- Sintassi:
+```java
+public abstract class LaMiaClasseAstratta {
+	public abstract ilMioMetodoAstratto area();
+}
+```

@@ -65,11 +65,11 @@ public interface Dictionary extends Container {
 - Metodi di accesso e modificatori per questi campi di esemplare
 
 ### implementazione dizionario non ordinato
-![[ArrayDictionary.png|500]]
+![[ArrayDictionary.png|420]]
 
 ### implementazione dizionario ordinato
-- Insert deve mantenere array ordinato (con InsertionSort)
-- Remove e find devono usare ricerca binaria
-- Remove deve ricompattare l'array dopo la rimozione, mantenendolo ordinato
+- L'array deve sempre essere mantenuto ordinato con Insertion Sort
+	- ogni volta che si inserisce o toglie un elemento
+- La ricerca deve avvenire attraverso **binary search** in quanto l'array è ordinato
 
 

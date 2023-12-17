@@ -74,10 +74,12 @@
 	- Linear algebra
 	- FFTs (Signal and image processing)
 	- Machine Learning
+
 ### memoria del computer
 - Suddivisa in **celle** (o locazioni di memoria)
 	- ciascuna ha un indirizzo
 	- ciascuna cella contiene un numero definito di bit
+
 ![[Gerarchie di memoria.png|700]]
 #### spazio di indirizzamento
 - Indirizzo -> sequenze di bit

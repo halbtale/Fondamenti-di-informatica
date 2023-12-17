@@ -21,6 +21,19 @@ riferimentoArray.length; // lunghezza
 int[] primes = {2,3,5};
 ```
 
+
+### copiare un array
+- Usare ```System.arraycopy()```
+```java
+System.arraycopy(sourceArray, firstSourceArrayIndex, targetArray, firstTargetArrayIndex, numberOfValuesToCopy)
+```
+
+- Usare ```clone()```
+	- serve fare il cast
+```java
+double[] otherValues = (double[]) values.clone()
+```
+
 ### effettuare resize di un array
 
 ```java
@@ -37,18 +50,6 @@ public static int[] resizeIntArray(int[] oldArray, int newLength) {
 		
 	return newArray;
 }
-```
-
-### copiare un array
-- Usare ```System.arraycopy()```
-```java
-System.arraycopy(sourceArray, firstSourceArrayIndex, targetArray, firstTargetArrayIndex, numberOfValuesToCopy)
-```
-
-- Usare ```clone()```
-	- serve fare il cast
-```java
-double[] otherValues = (double[]) values.clone()
 ```
 
 ### array riempiti solo in parte

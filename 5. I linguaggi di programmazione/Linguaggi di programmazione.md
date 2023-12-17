@@ -83,8 +83,8 @@ javac NomeFile.java
 	- traduce "al volo" bytecode in istruzioni macchina
 	- NomeFile.class -> codice binario
 	- può utilizzare le librerie Java grazie al JDK
-![[Interprete Java.png|650]]
-![[JDK.png|680]]
+
+![[Interprete Java.png|300]]
 ### linguaggi compilati vs linguaggi interpretati
 - **Linguaggi compilati**
 	- C++
