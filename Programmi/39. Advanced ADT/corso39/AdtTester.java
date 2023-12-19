@@ -1,24 +1,17 @@
 public class AdtTester {
     public static void main(String[] args) {
-        Deque deque = new FixedCircularArrayDeque();
+        SortedSet set = new ArraySortedSet();
+        SortedSet set2 = new ArraySortedSet();
 
-        deque.addFirst("Z");
-        System.out.println(deque);
+        set.add("OK 1");
+        set.add("OK 2");
+        set.add("OK 3");
+        set2.add("OK 3");
+        set2.add("OK 19");
+        set2.add("OK 4");
 
-        deque.addFirst("X");
-        System.out.println(deque);
+        SortedSet setMerged = ArraySortedSet.intersection(set, set2);
 
-        deque.addLast("A");
-        System.out.println(deque);
-
-        deque.addLast("B");
-        System.out.println(deque);
-
-        deque.addLast("C");
-        System.out.println(deque);
-
-        deque.removeFirst();
-        deque.removeLast();
-        System.out.println(deque);
+        System.out.println(setMerged);
     }
 }
