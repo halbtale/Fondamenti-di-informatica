@@ -12,7 +12,12 @@ public class SubstringGeneratorREC {
             uniqueElement[0] = s;
             return uniqueElement;
         }
-        String[] startSubstrings = substringsREC(s.substring(0, s.length() - 1));
+        String[] startSubstrings = new String[s.length()];
+        
+        for (int i = 0; i<startSubstrings.length; i++) {
+            startSubstrings[i] = s.substring(0, i + 1);
+        }
+
         String[] endSubstrings = substringsREC(s.substring(1));
         String[] totalSubstrings = new String[startSubstrings.length + endSubstrings.length + 1];
         int size = 0;
@@ -22,7 +27,7 @@ public class SubstringGeneratorREC {
         }
 
         for (int i = 0; i<endSubstrings.length; i++) {
-            totalSubstrings[size++] = startSubstrings[i];
+            totalSubstrings[size++] = endSubstrings[i];
         }
 
         totalSubstrings[size++] = s;
