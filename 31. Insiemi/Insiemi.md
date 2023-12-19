@@ -110,5 +110,25 @@ public static Set subtract(Set s1, Set s2) {
 	- usa contains quindi ha prestazioni $O(\log n)$
 - Metodo **union**
 	- sfruttare fusione di due array già ordinati (come merge sort)
->[!todo] Aggiungo codice e rivedo
-
+```java
+public static SortedSet union(SortedSet s1, SortedSet s2) {
+	SortedSet newSet = new ArraySortedSet();
+	Comparable[] array1 = s1.toSortedArray();
+	Comparable[] array2 = s2.toSortedArray();
+	
+	int i=0, i1 = 0, i2 = 0;
+	while (i1 < array1.length && i2 < array2.length) {
+		if (array1[i1].compareTo(array2[i2]) < 0) {
+			newSet.add(array1[i1++]);
+		} else if (array2[i2].compareTo(array1[i1]) < 0) {
+			newSet.add(array2[i2++]);
+		} else {
+			newSet.add(array1[i1]);
+			i1++;
+			i2++;
+		}
+	}
+	
+	return newSet;
+}
+```
