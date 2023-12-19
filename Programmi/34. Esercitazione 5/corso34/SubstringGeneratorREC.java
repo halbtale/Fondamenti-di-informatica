@@ -19,7 +19,7 @@ public class SubstringGeneratorREC {
         }
 
         String[] endSubstrings = substringsREC(s.substring(1));
-        String[] totalSubstrings = new String[startSubstrings.length + endSubstrings.length + 1];
+        String[] totalSubstrings = new String[startSubstrings.length + endSubstrings.length];
         int size = 0;
 
         for (int i = 0; i<startSubstrings.length; i++) {
@@ -29,8 +29,6 @@ public class SubstringGeneratorREC {
         for (int i = 0; i<endSubstrings.length; i++) {
             totalSubstrings[size++] = endSubstrings[i];
         }
-
-        totalSubstrings[size++] = s;
 
         return totalSubstrings;
     }
