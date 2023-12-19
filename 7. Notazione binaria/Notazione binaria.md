@@ -8,7 +8,7 @@
 	- $a_k$ cifra in posizione k
 ### base binaria
 - È la più semplice da manipolare per un computer
-	- acceso/spentoSWDE4RF5T
+	- acceso/spento
 	- tensione alta/bassa
 #### conversione da binario a decimale
 - $(1101)_2=(1*2^3+1*2^2+0*2^1+1*10^0)_{10}=(13)_{10}$
