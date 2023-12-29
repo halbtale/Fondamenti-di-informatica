@@ -1,4 +1,11 @@
-## prestazioni
+## Complessità computazionale
+### complessità computazionale di un algoritmo
+- = Misura **assoluta** delle **risorse** necessarie alla sua esecuzione
+- Assoluta
+	- non dipende da chi lo esegue (potenza computer)
+- Risorse
+	- analisi della **complessità temporale**
+	- analisi della **complessità spaziale**
 ### come misurare prestazioni?
 - Usare cronometro non è la soluzione migliori
 	- parte del tempo reale non dipende dall'algoritmo
@@ -18,12 +25,15 @@
 	- senza programmarlo
 - Non deve dipendere dalla potenza del computer
 #### operazioni primitive
+- Definita anche ==passo base==
 - Operazione che ha **tempo di esecuzione costante**
+	- NON dipende dall'input
 - Esempi
 	- assegnazione valore a una variabile
 	- operazione aritmetica/logica tra variabili primitive
 	- accesso in lettura/scrittura a un elemento di un array
-	- NO: invocazione di un metodo
+	- Valutazione espressione booleana
+	- NO: invocazione di un metodo ricorsivo
 #### dimensione dei dati
 - A seconda dell'input, assume significati diversi:
 	- **grandezza di un numero**
@@ -204,3 +214,22 @@ for (int i = 0; i < n; i++) {
 	- $T(1)$ si ha quando $n-k=1$ ovvero $k=n-1$
 	- $T(n)>2^{n-1}$
 - $2^{n-1} < T(n) < 2^{\frac{n-1}{2}} \implies T(n)=O(2^n)$
+### complessità spaziale
+- Si considera il picco di occupazione di memoria
+- Si distinguono
+	- azioni che occupano **quantità costante**
+		- variabili dati fondamentali
+	- azioni che occupano **quantità variabile**
+		- array e stringhe
+	- **memoria ausiliaria**
+		- occupata dal codice stesso
+- È importante considerare anche **garbage collection**
+	- quando si esce da un {blocco}, lo spazio delle variabili locali viene liberate
+- Codice ricorsivo
+	- si vanno a impilare n chiamate al metodo
+	- complessità $O(n)$
+>[!note] Integro slides
+
+### analisi di un problema
+- Invece di analizzare il codice, si può analizzare la complessità degli algoritmi che si utilizzano per risolverlo
+- È importante valutare la complessità computazionale se in presenza di **input grandi**

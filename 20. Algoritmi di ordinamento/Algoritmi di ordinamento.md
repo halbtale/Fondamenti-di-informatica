@@ -45,6 +45,11 @@ public static void selectionSort(int[] v, int vSize) {
 #### implementazione in java
 ![[Insertion Sort Code.png]]
 
+### bubble sort
+- Confronto due a due e faccio swap se la più grande è prima della più piccola
+	- tante volte finché non è tutto ordinato
+#### prestazioni
+$O(n^2)$
 ### ordinamento di oggetti
 - Si possono applicare algoritmi di ordinamento a oggetti, non solo a numeri interi
 - Gli algoritmi rimangono quasi invariati: l'unica differenza è l'utilizzo di ```compareTo()```

@@ -187,4 +187,23 @@ public class ArrayAlgs {
             return recursiveBinarySearch(array, startIndex, midIndex - 1, searchValue);
         }
     }
+
+    public static void bubbleSort(int[] array) {
+        int n = array.length;
+        int tempElement = 0;
+
+        int i = 0;
+        boolean swap = true;
+        while (swap) {
+            swap = false;
+            for (int j = 0; j < n-1; j++) {
+                if (array[j] > array[j+1]) {
+                    tempElement = array[j];
+                    array[j] = array[j+1];
+                    arary[j+1] = tempElement;
+                    swap = true;
+                }
+            }
+        }
+    }
 }

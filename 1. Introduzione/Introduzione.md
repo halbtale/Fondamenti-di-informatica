@@ -68,6 +68,40 @@
 $$ F=k+(110/30)*[(180-C)*M+C*V]/180 $$
 $$ F_v1 - F_v2 = (110/30)*C*(V1-V2)/180 $$
 Per fondamenti di informatica, ogni voto vale 0.24 nel voto di laurea
+#### prova d'esame - teoria
+- Tempo: 30'/45' minuti
+#### prova d'esame - pratica
+- Scrivere in un file uno o più metodi di una classe che implementa un'interfaccia
+- Scrivere uno o più metodi di una classe di collaudo (di solito fornita)
+- Scrivere un file un metodo ricorsivo e/p calcolare la complessità di un algoritmo
+- Commentare codice
+- Tempo a disposizione 80'/120' minuti
+#### argomenti fondamentali
+- Tipi di dati astratti e realizzazioni con strutture dati
+- Algoritmi di ordinamento e loro realizzazione
+- Ereditarietà e interfacce
+- Input/output anche su file
+#### obiettivi principali
+- Rispetti specifiche
+- Funzioni
+#### obiettivi secondari
+- Renderlo + efficiente
+- Gestisca coerentemente le eccezioni
+- Rispetti regole stilistiche e contenga commenti
+#### consigli
+- Verificare il funzionamento del programma in eventuali situazioni limite
+- Quando si ha un prototipo funzionante, conviene sempre farsi un backup prima di migliorarlo
+- Rendere da subito codice compilabile
+- Usa ```System.out.println()```come strumento di debug
+#### versione documentazione
+- OpenJDK 11.0.12
+#### iscrizione all'esame
+- APERTURA: 25/12/2023 
+- CHIUSURA: 22/01/2024
+- ESAME: 30/01/2024
+	- ore: 8:30
+	- Padiglione 14 fiera di Padova - Aula Taliercio
+	- Risultati entro 20/01/2024
 ### Modello darwiniano
 - Survival of the fittest
 - 12k€ per persona/anno

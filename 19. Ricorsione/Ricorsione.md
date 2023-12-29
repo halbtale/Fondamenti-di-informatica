@@ -40,4 +40,5 @@ public static int factorial(int n) {
 - Molto lenta
 - Esempio: calcolo dei numeri di Fibonacci
 	- $F_n = F_{n-1} + F_{n-2}$
+- Si può eliminare la ricorsione doppia facendo restituire un array contenente gli ultimi 2 elementi
 ![[Albero ricorsivo.png]]
