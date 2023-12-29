@@ -106,10 +106,16 @@ public static Set subtract(Set s1, Set s2) {
 	- usa linear-search
 	- prestazioni $O(\log n)$
 - Metodo **add**
-	- deve usare **insertion sort** per mantenere array ordinato
-	- usa contains quindi ha prestazioni $O(\log n)$
+	- usa contains per verificare se oggetto è presente $O(\log n)$
+	- deve usare **insertion sort** per mantenere array ordinato: $O(n)$
+	- prestazioni complessive: $O(n)+O(\log n)=O(\log n)$
 - Metodo **union**
 	- sfruttare fusione di due array già ordinati (come merge sort)
+	- viene eseguito ```add``` $n$ volte, il quale internamente:
+		- usa contains per verificare se oggetto è presente: $O(\log n)$
+		- aggiunge elemento alla fine dell'array
+		- poiché l'array parziale è già ordinato, l'algoritmo insertion sort è $O(1)$
+	- prestazioni complessive: $O(n\,\log n)$
 ```java
 public static SortedSet union(SortedSet s1, SortedSet s2) {
 	SortedSet newSet = new ArraySortedSet();
@@ -132,3 +138,14 @@ public static SortedSet union(SortedSet s1, SortedSet s2) {
 	return newSet;
 }
 ```
+
+### analisi prestazioni
+
+>[!summary] Prestazioni in sintesi
+>- add: $O(n)$
+>- toArray: $O(n)$
+>- contains: $O(n)$ (non ordinato) - $O(\log n)$ (ordinato)
+>- union: $O(n^2)$ (non ordinato) - $O(n\,\log n)$ (ordinato)
+>- intersection: $O(n^2)$ (non ordinato)  - $O(n\,\log n)$ (ordinato)
+>- subtract: $O(n^2)$ (non ordinato)  - $O(n\,\log n)$ (ordinato)
+

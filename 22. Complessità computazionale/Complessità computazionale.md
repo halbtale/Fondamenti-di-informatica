@@ -158,6 +158,7 @@ for (int i = 0; i < n; i++) {
 	- utilizzando ==Master Theorem==
 
 ### analisi prestazioni - insertion sort
+#### insertion sort su array non ordinati
 - Array $n$ elementi
 - Ciclo esterno: $n-1$ iterazioni (parto da 1)
 - A ogni iterazione
@@ -187,6 +188,13 @@ for (int i = 0; i < n; i++) {
 	-  un array che viene mantenuto ordinato per effettuare ricerche, inserendo ogni tanto un nuovo elemento e poi riordinandolo periodicamente
 
 ![[Confronto tra ordinamenti.png|400]]
+
+>[!summary] Prestazioni in sintesi
+>- **Selection sort**: $O(n^2)$
+>- **Merge sort**: $O(n\,\log n)$
+>- **Insertion sort**: $O(n^2)$ (caso peggiore) - $O(n)$ (caso migliore)
+>- **Insertion sort** su array quasi **ordinati** (eccetto ultimo elemento inserito): 
+>	 $O(n)$ (caso peggiore) - $O(1)$ (caso migliore)
 
 ### analisi prestazioni - linear search
 - Devo sempre fare $n$ accessi
@@ -225,11 +233,12 @@ for (int i = 0; i < n; i++) {
 		- occupata dal codice stesso
 - È importante considerare anche **garbage collection**
 	- quando si esce da un {blocco}, lo spazio delle variabili locali viene liberate
-- Codice ricorsivo
-	- si vanno a impilare n chiamate al metodo
-	- complessità $O(n)$
->[!note] Integro slides
-
+- Cicli iterativi
+	- non accumulano spazio perché viene liberato dopo ogni iterazione
+	- complessità spaziale $O(1)$
+- Cicli ricorsivi
+	- si possono impilare fino a $n$ chiamate del metodo nel punto di picco
+	- complessità spaziale $O(n)$
 ### analisi di un problema
 - Invece di analizzare il codice, si può analizzare la complessità degli algoritmi che si utilizzano per risolverlo
 - È importante valutare la complessità computazionale se in presenza di **input grandi**

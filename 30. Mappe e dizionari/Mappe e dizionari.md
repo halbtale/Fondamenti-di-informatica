@@ -34,29 +34,6 @@ public interface Dictionary extends Container {
 	- mantenere chiavi **ordinate**
 		- + performante nella lettura (si può usare binary search)
 	- lasciare chiavi **non ordinati**
-### performance dizionario
-#### dizionario con array ordinato
-- **Ricerca**
-	- prestazione $O(\log n)$
-	- binary search
-- **Rimozione** 
-	- prestazione $O(n)$
-	- bisogna effettuare una ricerca e poi spostare mediamente $\frac{n}{2}$ elementi
-- **Inserimento**
-	- prestazione $O(n)$
-		- o con algoritmo diverso $O(n \,\log n)$
-	- si può usare insertion sort in un array ordinato
-#### dizionario con array non ordinato
-- **Ricerca**
-	- prestazione $O(n)$
-	- ricerca lineare
-- **Rimozione**
-	- prestazione $O(n)$
-	- bisogna effettuare ricerca lineare e poi spostare nella posizione trovata l'ultimo elemento
-- **Inserimento**
-	- prestazione $O(n)$
-	- Bisogna rimuovere (sovrascrivere) un elemento con la stessa chiave, se c'è, e poi inserire il nuovo elemento nella ultima posizione dell’array (l’ordinamento non interessa)
-![[Performance.png]]
 ### la classe pair
 - Contiene elementi formati da **coppie chiave/valore**
 - Due **campi di esemplare**
@@ -72,4 +49,32 @@ public interface Dictionary extends Container {
 	- ogni volta che si inserisce o toglie un elemento
 - La ricerca deve avvenire attraverso **binary search** in quanto l'array è ordinato
 
+### performance dizionario
+#### dizionario con array non ordinato
+- **Ricerca**
+	- prestazione $O(n)$
+	- ricerca lineare
+- **Rimozione**
+	- prestazione $O(n)$
+	- bisogna effettuare ricerca lineare e poi spostare nella posizione trovata l'ultimo elemento
+- **Inserimento**
+	- prestazione $O(n)$
+	- Bisogna rimuovere (sovrascrivere) un elemento con la stessa chiave, se c'è, e poi inserire il nuovo elemento nella ultima posizione dell’array (l’ordinamento non interessa)
+#### dizionario con array ordinato
+- **Ricerca**
+	- prestazione $O(\log n)$
+	- binary search
+- **Rimozione** 
+	- prestazione $O(n)$
+	- bisogna effettuare una ricerca e poi spostare mediamente $\frac{n}{2}$ elementi
+- **Inserimento**
+	- prestazione $O(n)$
+		- o con algoritmo diverso $O(n \,\log n)$
+	- si può usare insertion sort in un array ordinato
+![[Performance.png]]
+
+>[!summary] Prestazioni in sintesi:
+>- find: $O(\log n)$ (ordinato) - $O(n)$ (non ordinato)
+>- insert: $O(n)$
+>- remove: $O(n)$
 

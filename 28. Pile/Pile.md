@@ -58,6 +58,11 @@ public interface Stack extends Container {
 	- push ha prestazioni $O(1)$ per qualsiasi costante **moltiplicativa**
 	- push ha prestazioni $O(n)$ per qualsiasi costante **addittiva**
 
+>[!summary] Prestazioni in sintesi
+>- top: $O(1)$ 
+>- pop: $O(1)$ 
+>- push: $O(1)$ (se growing, usando costante moltiplicativa)
+
 ### pile di dati fondamentali
 - Trasformare dato fondamentale in oggetto attraverso **classi involucro** (**wrapper**)
 ```java

@@ -36,6 +36,8 @@ public static void selectionSort(int[] v, int vSize) {
 ![[Merge sort code.png]]
 #### prestazioni
 - Ordine $T(n)=O(n \, \log n)$
+#### complessità spaziale
+- $O(n\, \log n)$ oppure $O(n)$ a seconda dell'implementazione
 
 ### ordinamento per inserimento
 - Si inizia osservando **sottoarray** di lunghezza unitaria -> già **ordinato**

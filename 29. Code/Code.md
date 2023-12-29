@@ -103,7 +103,10 @@ public interface Deque extends Container {
 ```
 - Può essere realizzata con **array circolare ridimensionabile**
 - Tutti i metodi hanno prestazioni $O(1)$
+### analisi prestazioni
 
->[!success] è da livello esame
-
+>[!summary] Prestazioni in sintesi:
+>- enqueue: $O(1)$ 
+>- dequeue: $O(1)$ (usando 2 indici) - $O(n)$ (usando 1 indice) 
+>- getFront: $O(1)$ 
 
