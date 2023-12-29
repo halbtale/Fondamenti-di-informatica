@@ -38,42 +38,67 @@ public class QueueTester
 
 class ArrayQueue implements Queue
 {
+    protected Object[] v;
+    protected int front, back;
+    protected static int INITSIZE = 5;
+
     public ArrayQueue()
-    {   v = new Object[INITSIZE]; 
-        makeEmpty(); }
+    {   
+        v = new Object[INITSIZE]; 
+        makeEmpty(); 
+    }
 
     public void makeEmpty()
-    {  front = back = 0; }
+    {  
+        front = back = 0; 
+    }
 
     public boolean isEmpty()
-    {  return (back == front); }
+    {  
+        return (back == front); 
+    }
 
     public void enqueue(Object obj)
-    {  ...
+    { 
+        if (increment(back) == front) {
+            v = resize(v.length * 2);
+            if (back < front) {
+                System.arraycopy(v, 0, v, v.length, back);
+                back = back + v.length / 2;
+            } 
+        }
+        v[back] = obj;
+        back = increment(back);
     }
 
     public Object dequeue()
-    {   Object obj = getFront();
+    {   
+        Object obj = getFront();
         front = increment(front);
         return obj;
     }
 
     public Object getFront()
-    {  if (isEmpty()) throw new EmptyQueueException();
-        return v[front]; }
+    {  
+        if (isEmpty()) throw new EmptyQueueException();
+        return v[front]; 
+    }
 
     // il metodo increment fa avanzare un indice di una
     // posizione, tornando all'inizio se si supera la fine.
     // Attenzione: non aggiorna direttamente i campi front,back
     protected int increment(int index)
-    {  return (index + 1) % v.length;
+    {  
+        return (index + 1) % v.length;
     }
 
     protected Object[] resize(int newLength)
-    {  ...
-    }
+    {  
+        if (newLength <= 0) throw new IllegalArgumentException();
+        Object[] resizedArray = new Object[newLength];
 
-    protected Object[] v;
-    protected int front, back;
-    protected static int INITSIZE = 5;
+        System.arraycopy(v, 0, resizedArray, 0, Math.min(resizedArray.length, v.length));
+
+        return resizedArray;
+    }
 }
