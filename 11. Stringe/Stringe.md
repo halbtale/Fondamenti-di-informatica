@@ -79,3 +79,18 @@ System.out.printf(
 System.out.printf("%3d + %3d = %3d%n", a, b, s);
 // lunghezza minima: 3 -> lascia spazi vuoti se di meno
 ```
+
+### testo colorato
+- Codifica ANSI
+- È possibile stampare dei caratteri speciali per far cambiare il colore del testo nel terminale
+```java
+final String ANSI_RESET = "\u001B[0m";
+final String ANSI_YELLOW = "\u001B[33m";
+System.out.println(ANSI_YELLOW + "[Warn] Input non valido" + ANSI_RESET);
+```
+- Il numero successivo alla parentesi quadra indica il colore:
+	- 0: default
+	- 31: rosso
+	- 32: verde
+	- 33: giallo
+	- 34: blu
