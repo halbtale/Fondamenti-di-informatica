@@ -1,9 +1,64 @@
-class Agenda implements PriorityQueue {
+public class Agenda implements PriorityQueue {
+    protected final int INIT_ARRAY_SIZE = 5;
+    protected Impegno[] impegniArray;
+    protected int impegniArraySize;
+
     // costruttore...
+    Agenda() {
+        impegniArray = new Impegno[5];
+        makeEmpty();
+    }
 
     // metodi pubblici (e privati)......da completare ......
 
+    public void makeEmpty() {
+        impegniArraySize = 0;
+    }
+
+    public boolean isEmpty() {
+        return impegniArraySize == 0;
+    }
+
+    public void insert(int key, Object value) {
+        if (!(value instanceof String))
+            throw new IllegalArgumentException();
+        if (impegniArray.length == impegniArraySize)
+            resize();
+
+        Impegno newImpegno = new Impegno(key, (String) value);
+
+        impegniArraySize++;
+        int i = impegniArraySize - 1;
+        while (i > 0) {
+            if (impegniArray[i - 1].getPriority() <= key) {
+                impegniArray[i] = impegniArray[i - 1];
+                i--;
+            } else {
+                break;
+            }
+        }
+        impegniArray[i] = newImpegno;
+    }
+
+    public Object removeMin() throws EmptyQueueException {
+        Object el = getMin();
+        impegniArraySize--;
+        return el;
+    }
+
+    public Object getMin() throws EmptyQueueException {
+        if (impegniArraySize == 0)
+            throw new EmptyQueueException();
+        Object el = impegniArray[impegniArraySize - 1].getMemo();
+        return el;
+    }
+
     public String toString() {
+        String output = "";
+        for (int i = impegniArraySize - 1; i >= 0; i--) {
+            output += impegniArray[i] + "\n";
+        }
+        return output;
     } // ..... da completare .........
 
     // campi di esemplare ..... da completare ......
@@ -52,5 +107,11 @@ class Agenda implements PriorityQueue {
         // campi di esemplare (privati) della classe Impegno
         private int priority; // priorita` dell'impegno (da 0 a 3)
         private String memo; // promemoria dell'impegno
+    }
+
+    private void resize() {
+        Impegno[] rezizedImpegniArray = new Impegno[impegniArray.length * 2];
+        System.arraycopy(impegniArray, 0, rezizedImpegniArray, 0, impegniArray.length);
+        impegniArray = rezizedImpegniArray;
     }
 }

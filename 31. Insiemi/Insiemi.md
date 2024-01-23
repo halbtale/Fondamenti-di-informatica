@@ -144,6 +144,7 @@ public static SortedSet union(SortedSet s1, SortedSet s2) {
 >[!summary] Prestazioni in sintesi
 >- add: $O(n)$
 >- toArray: $O(n)$
+>- toSortedArray: $O(n)$
 >- contains: $O(n)$ (non ordinato) - $O(\log n)$ (ordinato)
 >- union: $O(n^2)$ (non ordinato) - $O(n\,\log n)$ (ordinato)
 >- intersection: $O(n^2)$ (non ordinato)  - $O(n\,\log n)$ (ordinato)
