@@ -4,7 +4,8 @@
   */ 
 public class ProvaSIG
 {  public static void main(String[] args) throws java.io.IOException
-   {  SIG s = new SIG(args[0]);
+   {  
+      SIG s = new SIG(args[0]);
       System.out.println("\n*** size = " + s.size() + " ***");
       MIS[] c = s.toSortedArray();
       
@@ -14,7 +15,8 @@ public class ProvaSIG
 
       System.out.println("\n*** find e remove ***");
       for (int i = 0; i < c.length; i++)
-      {  System.out.println(new MIS(c[i].tempo(), s.find(c[i].tempo())));
+      {  
+         System.out.println(new MIS(c[i].tempo(), s.find(c[i].tempo())));
          s.remove(c[i].tempo());
       }
 
