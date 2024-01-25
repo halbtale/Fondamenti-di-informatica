@@ -29,7 +29,7 @@ public class MIS implements Comparable
 	}
 
 	public String toString() {
-		return String.format("%d %.1f", t, v);
+		return String.format("(%d %.1f)", t, v);
 	}
 
 	public int compareTo(Object obj) {
