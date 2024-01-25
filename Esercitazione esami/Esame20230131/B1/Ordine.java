@@ -11,10 +11,10 @@ Suggerimento (soluzione semplice): estrarre gli elementi dalla pila e inserirli 
 */
 
 /*
-NOME:
-COGNOME:
-NUMERO MATRICOLA:
-POSTAZIONE:
+NOME: Alberto 
+COGNOME: Heissl
+NUMERO MATRICOLA: 2101739
+POSTAZIONE: 10
 */
 
 
@@ -23,7 +23,7 @@ import java.io.PrintWriter;
 import java.io.IOException;
 import java.util.Scanner;
 
-
+@SuppressWarnings("unchecked")
 public class Ordine
 /*
 Da notare:
@@ -67,17 +67,60 @@ public static void main(String[] args) throws IOException
 
 
 
-public static void mergeSort(Stack s)
-{ 
-	...
-  ...
-}
+    public static void mergeSort(Stack s)
+    { 
+        if (s.isEmpty()) return;
 
- private static void merge(Stack s, Stack left, Stack right)
-{  
-  ...
-  ...
-}
- 
+        // divido stack in due sottostack
+        Stack s1 = new GrowingArrayStack();
+        Stack s2 = new GrowingArrayStack();
+
+        int count = 0;
+        while (!s.isEmpty()) {
+            if (count % 2 == 0) {
+                s1.push(s.pop());
+            } else {
+                s2.push(s.pop());
+            }
+            count++;
+        }
+
+        if (!s1.isEmpty() && s2.isEmpty()) {
+            s.push(s1.pop());
+            return;
+        }
+        
+        // mergeSort in ciascun sottostack
+        mergeSort(s1);
+        mergeSort(s2);
+
+        // merge sui due sottostack ordinati
+        merge(s, s1, s2);
+    }
+
+    private static void merge(Stack s, Stack left, Stack right)
+    {  
+        Stack tempS = new GrowingArrayStack();
+        while (!left.isEmpty() && !right.isEmpty()) {
+            if (((Comparable) left.top()).compareTo(right.top()) < 0) {
+                tempS.push(left.pop());
+            } else {
+                tempS.push(right.pop());
+            }
+        }
+
+        while (!left.isEmpty()) {
+            tempS.push(left.pop());
+        }
+
+        while (!right.isEmpty()) {
+            tempS.push(right.pop());
+        }
+
+        while (!tempS.isEmpty()) {
+            s.push(tempS.pop());
+        }
+    }
+    
 
 }
