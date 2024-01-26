@@ -9,3 +9,4 @@ public interface CD
   Object getLast ()  throws EmptyCDException;
 }
 
+class EmptyCDException extends RuntimeException {}
