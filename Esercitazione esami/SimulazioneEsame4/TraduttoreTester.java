@@ -1,97 +1,78 @@
 // nome e cognome del candidato, matricola, data, numero della postazione
+// Alberto Heissl, 2101739, Postazione 10
 
+import java.io.FileReader;
+import java.io.IOException;
+import java.util.Scanner;
+import java.io.PrintWriter;
 
 public class TraduttoreTester
-{   public static void main(String[] args)
+{   
+  private static final String ANSI_RESET = "\u001B[0m";
+  private static final String ANSI_RED = "\u001B[31m";
+  
+  public static void main(String[] args)
     {
-      // ....... da completare ............
+      // Due nomi di ﬁle di testo, ﬁle1 e ﬁle2, vengono passati come argomenti sulla riga di comando
+      if (args.length != 2) {
+        System.out.println(ANSI_RED+"Usage: javac TraduttoreTester [inputfile] [outputfile]"+ANSI_RESET);
+        System.exit(1);
+      }
+      String inputFileName = args[0];
+      String outputFileName = args[1];
+
+      try {
+        // Viene creato un primo esemplare della classe Traduttore, in cui si inseriscono elementi letti dal file1 (scritto nello stesso formato speciﬁcato sopra per il metodo toString di Traduttore).
+        DictionaryUD traduttore1 = readFromFile(inputFileName);
+
+        DictionaryUD traduttore2 = readFromStdin();
+
+        traduttore1.update(traduttore2);
+
+        writeDictToFile(traduttore1, outputFileName);
+      } catch (IOException e) {
+        System.out.println(ANSI_RED+"[Error] reading/writing file has not been successful"+ANSI_RESET);
+      }
     }
-}
 
+    private static DictionaryUD readFromFile(String filename) throws IOException {
+      DictionaryUD dict;
 
-class Traduttore implements DictionaryUD
-{
-    //costruttori e metodi pubblici ......da completare ......
-
-    public String toString()
-    {  }   // ..... da completare .........
-    
-    //campi di esemplare  ..... da completare ......
-
-    //classe privata WordPair: non modificare!!
-    private class WordPair
-    {   public WordPair(String word, String[] translations)
-        {   this.word = word; 
-            this.translations = translations;
-        }
-      
-        public String getWord() 
-        { return word; }
-        public String[] getTranslations() 
-        { return translations; }
-        /*
-            Restituisce una stringa contenente
-            - la parola word
-            - un carattere di separazione ( : )
-            - gli elementi dell'array translations, separati da uno spazio
-        */
-        public String toString() 
-        {   String retString = word + " :";
-            for (int i = 0; i < translations.length; i++)
-	        retString += " " + translations[i];
-            return retString;
-        }
-        //campi di esemplare
-        private String word;
-        private String[] translations;
+      FileReader reader = new FileReader(filename);
+      try (Scanner scan = new Scanner(reader)) {
+        dict = readFromScanner(scan);
+      } finally {
+        reader.close();
+      }
+       return dict;
     }
+
+    private static DictionaryUD readFromStdin() {
+      try (Scanner scan = new Scanner(System.in)) {
+        return readFromScanner(scan);
+      }
+    }
+
+    private static DictionaryUD readFromScanner(Scanner scan) {
+      DictionaryUD dict = new Traduttore();
+      while (scan.hasNextLine()) {
+          String line = scan.nextLine();
+          Scanner lineScan = new Scanner(line);
+          lineScan.useDelimiter(" : ");
+
+          String key = lineScan.next();
+          String valuesRaw = lineScan.next();
+          String[] values = valuesRaw.split(" ");
+
+          dict.insert(key, values);
+        }
+        return dict;
+    } 
+
+    private static void writeDictToFile(DictionaryUD dict, String filename) throws IOException {
+      PrintWriter writer = new PrintWriter(filename);
+      writer.println(dict);
+      writer.close();
+    }
+
 }
-
-
-interface DictionaryUD   //non modificare!!
-{
-    /*
-     verifica se il dizionario contiene almeno una coppia chiave/valore
-    */
-    boolean isEmpty();
-
-    /* 
-     svuota il dizionario
-    */
-    void makeEmpty();
-
-    /*
-     Inserisce un elemento nel dizionario. L'inserimento va sempre a buon fine.
-     Se la chiave non esiste la coppia key/value viene aggiunta al dizionario; 
-     se la chiave esiste gia' il valore ad essa associato viene sovrascritto 
-     con il nuovo valore; se key e` null viene lanciata IllegalArgumentException
-    */
-    void insert(Comparable key, Object value);
-
-    /*
-     Rimuove dal dizionario l'elemento specificato dalla chiave key
-     Se la chiave non esiste viene lanciata DictionaryItemNotFoundException 
-    */
-    void remove(Comparable key);
-
-    /*
-     Cerca nel dizionario l'elemento specificato dalla chiave key
-     La ricerca per chiave restituisce soltanto il valore ad essa associato
-     Se la chiave non esiste viene lanciata DictionaryItemNotFoundException
-    */
-    Object find(Comparable key);
-
-    /* 
-     Aggiorna il contenuto del dizionario (parametro implicito del metodo) con 
-     il contenuto del dizionario newdict (parametro esplicito del metodo). 
-     Piu' precisamente:
-     a) se newdict contiene una chiave key non presente nel dizionario, la 
-        coppia corrispondente (key value) viene scritta nel dizionario
-     b) se newdict contiene una chiave key gia' presente nel dizionario, la 
-        coppia (key value) presente nel dizionario viene sovrascritta da quella 
-        di newdict 
-    */
-    void update(DictionaryUD newdict);
-}
-
-class DictionaryItemNotFoundException extends RuntimeException  {}
