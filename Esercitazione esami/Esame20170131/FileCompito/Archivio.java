@@ -17,7 +17,7 @@ public class Archivio implements DizionarioInvertibile
 	già presente nel dizionario comporta la sostituzione della coppia presente con una nuova).*/
 
 	public void inserisci (String chiave, int attributo)
-	{
+	{	
 		if (chiave == null) return;
 		
 		cancella(chiave);
@@ -45,12 +45,12 @@ public class Archivio implements DizionarioInvertibile
 		return coppie[index];
 	}
 
-	// private int linearSearch(String chiave) {
-	// 	for (int i = 0; i<tagliaArchivio; i++) {
-	// 		if (coppie[i].getChiave().compareTo(chiave) == 0) return i;
-	// 	}
-	// 	return -1;
-	// }
+	private int linearSearch(String chiave) {
+		for (int i = 0; i<tagliaArchivio; i++) {
+			if (coppie[i].getChiave().compareTo(chiave) == 0) return i;
+		}
+		return -1;
+	}
 
 	private int binarySearch(String chiave) {
 		return binarySearch(chiave, 0, tagliaArchivio - 1);
@@ -77,9 +77,10 @@ public class Archivio implements DizionarioInvertibile
 		if (index == -1) return null;
 		Coppia removedCoppia = coppie[index];
 		tagliaArchivio--;
-		for (int i = index; i<tagliaArchivio - 1; i++) {
+		for (int i = index; i<tagliaArchivio; i++) {
 			coppie[i] = coppie[i+1];
 		}
+		System.out.println(this);
 		return removedCoppia;
 	}
 	
