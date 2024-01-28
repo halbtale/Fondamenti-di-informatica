@@ -1,131 +1,82 @@
 // nome e cognome del candidato, matricola, data, numero della postazione
 
+import java.util.Scanner;
+import java.util.NoSuchElementException;
 
-public class MultiQueueTester
-{   public static void main(String[] args)
-    {
-      // ....... da completare ............
-    }
-}
+public class MultiQueueTester {
+	private static final String ANSI_RESET = "\u001B[0m";
+	private static final String ANSI_RED = "\u001B[31m";
+	private static final String ANSI_GREEN = "\u001B[32m";
+	private static final String ANSI_YELLOW = "\u001B[33m";
 
-
-//-----------------------------------------------------------------------------
-
-// Classe che implementa l'interfaccia Queue usando un array (array riempito
-// solo in parte, oppure array riempito solo nella parte centrale, oppure
-// array circolare), con o senza ridimensionamento. La classe sovrascrive 
-// il metodo toString
-// ....... da completare ............
-
-class ArrayQueue implements Queue
-{
-    //metodi pubblici dell'interfaccia Queue ......da completare ......
-    // ...
-
-    //metodo toString ..... da completare .........
-    public String toString()
-    {
-        // ...
-    }          
-
-    //campi di esemplare ..... da completare ......
-
-}
-
-
-//-----------------------------------------------------------------------------
-
-// Classe che implementa l'interfaccia MultiQueue usando un array di N code. 
-// La classe sovrascrive il metodo toString
-// ....... da completare ............
-
-class ArrayMultiQueue implements MultiQueue
-{
-    //costruttore ......da completare ......
-    // crea una multicoda vuota, costituita da una sequenza di N code vuote,
-    // con N > 0
-    public ArrayMultiQueue(int N)
-    {
-        // ...
-    }          
+  public static void main(String[] args) {
+    int N = getNFromArgs(args);
     
-    //metodi pubblici dell'interfaccia MultiQueue ......da completare ......
-    // ...
+    MultiQueue multiQueue = new ArrayMultiQueue(N);
 
-    //metodo toString ..... da completare .........
-    public String toString()
-    {
-        // ...
-    }          
+    boolean shouldPromptForCommand = true;
 
-    //campi di esemplare ..... da completare ......
+	Scanner in = new Scanner(System.in);
+
+    while (shouldPromptForCommand) {
+		System.out.println("\nInsert a command");
+		if (!in.hasNextLine()) break;
+		String command = in.nextLine();
+
+		if (command.equalsIgnoreCase("A")) {
+			addAction(in, multiQueue);
+		} else if (command.equalsIgnoreCase("R")) {
+			removeAction(in, multiQueue);
+		} else if (command.equalsIgnoreCase("P")) {
+			System.out.println(ANSI_GREEN + multiQueue + ANSI_RESET);
+		} else if (command.equalsIgnoreCase("Q")) {
+			shouldPromptForCommand = false;
+		}
+    }
+
+	in.close();
+  } 
+
+  private static int getNFromArgs(String[] args) {
+    try {
+      if (args.length != 1) {
+        throw new IllegalArgumentException();
+      }
+      int N = Integer.parseInt(args[0]);
+	  if (N <= 0) throw new IllegalArgumentException();
+      return N;
+    } catch (RuntimeException e) {
+      System.err.println(ANSI_RED + "Usage: java MultiQueueTester [N>0]" + ANSI_RESET);
+      System.exit(1);
+    }
+	return -1;
+  }
+
+  private static void addAction(Scanner in, MultiQueue q) {
+	try {
+		System.out.println("Please insert the name of the new person");
+		String name = in.nextLine();
+		q.add(name);
+		System.out.println(ANSI_GREEN + name + " added successfully" + ANSI_RESET);
+	} catch (NoSuchElementException e) {
+		System.err.println(ANSI_YELLOW + "No input found" + ANSI_RESET);
+	}
+  }
+
+  private static void removeAction(Scanner in, MultiQueue q) {
+	try {
+		System.out.println("Please insert the index of the queue");
+		String input = in.nextLine();
+		int index = Integer.parseInt(input);
+		Object removedElement = q.remove(index);
+		System.out.println(ANSI_GREEN + "Successfully removed element:" + ANSI_RESET);
+		System.out.println(removedElement);
+	} catch (NoSuchElementException e) {
+		System.err.println(ANSI_YELLOW + "No input found" + ANSI_RESET);
+	} catch (NumberFormatException e) {
+		System.err.println(ANSI_YELLOW + "The format of the number is not valid" + ANSI_RESET);
+	} catch (EmptyQueueException e) {
+		System.err.println(ANSI_YELLOW + "The queue selected is empty" + ANSI_RESET);
+	}
+  }
 }
-
-
-//-----------------------------------------------------------------------------
-
-// NON MODIFICARE!
-// Interfaccia che rappresenta il tipo di dati astratto coda
-
-interface Queue
-{   // Restituisce true se la coda e` vuota. Restituisce false se la coda
-    // contiene almeno un elemento
-    boolean isEmpty(); 
-
-    // Svuota la coda
-    void makeEmpty();
-  
-    // Restituisce il numero di elementi presenti nella coda
-    int size();
-
-    // Inserisce l'oggetto obj nella coda
-    void enqueue(Object obj);
-
-    // Elimina dalla coda il primo oggetto, e lo restituisce.
-    // Lancia EmptyQueueException se la coda e` vuota
-    Object dequeue() throws EmptyQueueException;
-
-    // Restituisce il primo oggetto della coda, senza estrarlo
-    // Lancia EmptyQueueException se la coda e` vuota
-    Object getFront() throws EmptyQueueException;
-}
-
-//-----------------------------------------------------------------------------
-
-// NON MODIFICARE!
-// Eccezione lanciata da dequeue e getFront quando la coda e` vuota
-
-class EmptyQueueException extends RuntimeException { }
-
-
-//-----------------------------------------------------------------------------
-
-// NON MODIFICARE!
-// Interfaccia che rappresenta il tipo di dati astratto "multicoda".
-// Una multicoda e` una sequenza di N code. Ciascuna delle N code e` 
-// identificata da un indice intero i, dove 0 <= i < N.
-
-interface MultiQueue     
-{
-    // Restituisce true se la multicoda e` vuota, cioe` se tutte le N
-    // code della multicoda sono vuote. Restituisce false se la multicoda
-    // contiene almeno un elemento, cioe` se almeno una delle N code della
-    // multicoda contiene almeno un elemento
-    boolean isEmpty(); 
-
-    // Svuota la multicoda, cioe` svuota tutte le N code della multicoda
-    void makeEmpty();
-  
-    // Inserisce l'oggetto obj nella multicoda. Tra tutte le N code della
-    // multicoda, l'oggetto viene accodato a quella che contiene il minor
-    // numero di elementi. Nel caso in cui piu` code contengano un numero
-    // di elementi pari al minimo, la scelta è indifferente
-    void add(Object obj);
-
-    // Disaccoda dalla i-esima coda il suo primo elemento e lo restituisce.
-    // L'indice intero i specifica quale e` la coda da cui disaccodare il 
-    // primo elemento. Di conseguenza i deve essere tale che 0 <= i < N.
-    // Lancia EmptyQueueException se la la i-esima coda e` vuota
-    Object remove(int i) throws EmptyQueueException;
-}
-
