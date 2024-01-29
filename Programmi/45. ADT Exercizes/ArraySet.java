@@ -1,5 +1,5 @@
 @SuppressWarnings("unchecked")
-class ArraySet implements SortedSet {
+public class ArraySet implements SortedSet {
     private static final int INIT_ARRAY_SIZE = 5;
     private Comparable[] array;
     private int arraySize;
@@ -9,10 +9,17 @@ class ArraySet implements SortedSet {
         makeEmpty();
     }
 
+    /**
+     * Empties the set
+     */
     public void makeEmpty() {
         arraySize = 0;
     }
 
+    /**
+    * Checks whether the set is empty
+    * @return boolean value to whether it is emtpy 
+    */
     public boolean isEmpty() {
         return arraySize == 0;
     }
@@ -33,6 +40,10 @@ class ArraySet implements SortedSet {
         throw new IllegalArgumentException();
     }
 
+    /**
+     * Checks if an element is present in the set
+     * @return boolean value to whether it is present
+     */
     public boolean contains(Comparable searchValue) {
         int i = linearSearch(searchValue, 0, arraySize - 1);
         if (i == -1) return false;
@@ -43,6 +54,10 @@ class ArraySet implements SortedSet {
         throw new IllegalArgumentException();
     }
 
+    /**
+     * Adds element to the set
+     * @param obj element to add
+     */
     public void add(Comparable obj) {
         if (arraySize + 1 == array.length) array = resize(arraySize * 2);
         if (!contains(obj)) {
@@ -66,6 +81,10 @@ class ArraySet implements SortedSet {
         return toSortedArray();
     }
 
+    /**
+     * Returns a sorted array of the set
+     * @return sorted array
+     */
     public Comparable[] toSortedArray() {
         return resize(arraySize);
     }
